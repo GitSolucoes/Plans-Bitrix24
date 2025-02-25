@@ -748,17 +748,17 @@ BL_FIBRA = [
 
 def get_api_url_desktop(cidade):
     if cidade in CITIES_API_DESKTOP_BRONZE:
-        return "https://workflow-solucoes.onrender.com/webhook/workflow_desktop_bronze"
+        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_desktop_bronze"
     elif cidade in CITIES_API_DESKTOP_PRATA:
-        return "https://workflow-solucoes.onrender.com/webhook/workflow_desktop_prata"
+        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_desktop_prata"
     elif cidade in CITIS_API_DESKTOP_OURO:
-        return "https://workflow-solucoes.onrender.com/webhook/workflow_desktop_ouro"
+        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_desktop_ouro"
     elif cidade in CITIS_API_DESKTOP_PLATINA:
-        return "https://workflow-solucoes.onrender.com/webhook/workflow_desktop_platina"
+        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_desktop_platina"
     elif cidade in CITIS_API_DESKTOP_DIAMANTE:
-        return "https://workflow-solucoes.onrender.com/webhook/workflow_desktop_diamante"
+        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_desktop_diamante"
     elif cidade in CITIS_API_DESKTOP_ASCENDENTE:
-        return "https://workflow-solucoes.onrender.com/webhook/workflow_desktop_ascedente"
+        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_desktop_ascedente"
     else: 
         return None
 
@@ -768,19 +768,19 @@ def get_api_url_giga(cidade):
     urls = []
 
     if cidade in CITIES_API_TERRITORIO_T1_a_T9:
-        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowt1_a_t9")
+        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowt1_a_t9")
     if cidade in CITIES_API_TERRITORIO_T10_a_T14:
-        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowt10_t14")
+        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowt10_t14")
     if cidade in CITIES_API_TERRITORIO_TELEFONEFIXO_T5_a_T7:
-        urls.append("https://workflow-solucoes.onrender.com/webhook/workflow_TELEFONEFIXO_T5_a_T7")
+        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_TELEFONEFIXO_T5_a_T7")
     if cidade in CITIES_API_TERRITORIO_ALTOS_PARNAIBA_TERESINA:
-        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowt_ALTOS_PARNAIBA_TERESINA")
+        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowt_ALTOS_PARNAIBA_TERESINA")
     if cidade in CITIES_API_TERRITORIO_CIDADES_ESPECIAIS_1:
-        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowt_CIDADES_ESPECIAIS_1")
+        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowt_CIDADES_ESPECIAIS_1")
     if cidade in CITIES_API_TERRITORIO_CIDADES_ESPECIAIS_2:
-        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowt_CIDADES_ESPECIAIS_2")
+        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowt_CIDADES_ESPECIAIS_2")
     if cidade in CITIES_API_TERRITORIO_CIDADES_ESPECIAIS_3:
-        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowt_CIDADES_ESPECIAIS_3") 
+        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowt_CIDADES_ESPECIAIS_3") 
 
     return urls or None
 
@@ -789,32 +789,32 @@ def get_api_url_vero(cidade):
     urls = []
 
     if cidade in CITIES_API_OURO:
-        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowouro")
+        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowouro")
     if cidade in CITYES_API_GRAFENO_75:
-        urls.append("https://workflow-solucoes.onrender.com/webhook/workflow_grafeno_75")
+        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_grafeno_75")
     if cidade in CITYES_API_GRAFENO_80:
-        urls.append("https://workflow-solucoes.onrender.com/webhook/workflow_grafeno_80")
+        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_grafeno_80")
     if cidade in CITIES_API_SAFIRA:
-        urls.append("https://workflow-solucoes.onrender.com/webhook/workflow_safira")
+        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_safira")
     if cidade in CITIES_API_PADRAO:
-        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowpadrao")
+        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowpadrao")
     if cidade in CITIES_API_REDE_NEUTRA:
-        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowredeneutra")
+        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowredeneutra")
     if cidade in CITIES_API_PRATA:
-        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowprata")
+        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowprata")
     
     return urls or None 
 
 
 def get_api_url_algar(cidade):
     if cidade in CITIES_ALGAR_600MB:
-        return "https://workflow-solucoes.onrender.com/webhook/workflow_algar_600MB"
+        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_algar_600MB"
     elif cidade in CITIES_ALGAR_800MB:
-        return "https://workflow-solucoes.onrender.com/webhook/workflow_algar_800MB"
+        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_algar_800MB"
     elif cidade in CITIES_ALGAR_SPECIALCITIES:
-        return "https://workflow-solucoes.onrender.com/webhook/workflow_algar_specialcities"
+        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_algar_specialcities"
     else: 
-        return "https://workflow-solucoes.onrender.com/webhook/workflow_algar"
+        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_algar"
 
 
 
@@ -902,7 +902,7 @@ def atualizar_campo_e_chamar_api_bl(cidade, entity_id):
     atualizar_campo_no_crm(entity_id)
 
 
-    url = "https://workflow-solucoes.onrender.com/webhook/workflow_bl-fibra" 
+    url = "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_bl-fibra" 
 
 
     if cidade not in BL_FIBRA:
