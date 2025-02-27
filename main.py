@@ -1,12 +1,10 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
 import requests
 from dotenv import load_dotenv
 import os
 import time
 
 app = Flask(__name__)
-CORS(app)
 
 load_dotenv()
 
@@ -580,7 +578,7 @@ CITIES_API_TERRITORIO_T1_a_T9 = [
     "BERTIOGA - SP", "CAÇAPAVA - SP", "CARAGUATATUBA - SP", "CUBATÃO - SP", "GUARUJÁ - SP", "ILHABELA - SP", "ITANHAÉM - SP", "JACAREÍ - SP", "MONGAGUÁ - SP", "PERUÍBE - SP", "PRAIA GRANDE - SP", "SANTOS - SP", "SÃO JOSÉ DOS CAMPOS - SP", "SÃO SEBASTIÃO - SP", "SÃO VICENTE - SP", "SAO VICENTE - SP", "TAUBATÉ - SP", "TREMEMBÉ - SP", "UBATUBA - SP",
     "ARARUAMA - RJ", "ARMAÇÃO DOS BÚZIOS - RJ", "ARRAIAL DO CABO - RJ", "CABO FRIO - RJ", "CASIMIRO DE ABREU - RJ", "IGUABA GRANDE - RJ", "MACAÉ - RJ", "RIO DAS OSTRAS - RJ", "SÃO PEDRO DA ALDEIA - RJ", "SAQUAREMA - RJ",
     "ALÉM PARAÍBA - RJ", "BARRA DO PIRAÍ - RJ", "BARRA MANSA - RJ", "BOM JARDIM - RJ", "CACHOEIRAS DE MACACU - RJ", "CARMO - RJ", "COMENDADOR LEVY GASPARIAN - RJ", "GUAPIMIRIM - RJ", "ITAIPAVA - RJ", "ITATIAIA - RJ", "MAGÉ - RJ", "MIGUEL PEREIRA - RJ", "NOVA FRIBURGO - RJ", "PARAÍBA DO SUL - RJ", "PATY DO ALFERES - RJ", "PETRÓPOLIS - RJ", "PINHEIRAL - RJ", "PORTO REAL - RJ", "RESENDE - RJ", "SAPUCAIA - RJ", "SILVA JARDIM - RJ", "SUMIDOURO - RJ", "TERESÓPOLIS - RJ", "TRÊS RIOS - RJ", "VALENÇA - RJ", "VASSOURAS - RJ", "VOLTA REDONDA - RJ",
-    "ANCHIETA - ES", "APERIBÉ - ES", "CACHOEIRO DE ITAPEMIRIM - ES", "CAMBUCI - ES", "CAMPOS DOS GOYTACAZES - ES", "CAMPOS DOS GOYTACAZES - RJ", "CANTAGALO - ES", "CARIACICA - ES", "CATAGUASES - ES", "CORDEIRO - ES", "DUAS BARRAS - ES", "GUARAPARI - ES", "ITAOCARA - ES", "ITAPEMIRIM - ES", "ITAPERUNA - ES", "LAJE DO MURIAÉ - RJ", "MACUCO - ES", "MARATAÍZES - ES", "MIRACEMA - ES", "MURIAÉ - MG", "PIÚMA - ES", "SANTO ANTÔNIO DE PÁDUA - ES", "SÃO FIDÉLIS - ES", "SÃO JOSÉ DE UBÁ - ES", "SERRA - ES", "VILA VELHA - ES", "VITÓRIA - ES"
+    "ANCHIETA - ES", "APERIBÉ - ES", "CACHOEIRO DE ITAPEMIRIM - ES", "CAMBUCI - ES", "CAMPOS DOS GOYTACAZES - ES", "CAMPOS DOS GOYTACAZES - RJ", "CANTAGALO - ES", "CARIACICA - ES", "CATAGUASES - ES", "CORDEIRO - ES", "DUAS BARRAS - ES", "GUARAPARI - ES", "ITAOCARA - ES", "ITAPEMIRIM - ES", "ITAPERUNA - ES", "LAJE DO MURIAÉ - ES", "MACUCO - ES", "MARATAÍZES - ES", "MIRACEMA - ES", "MURIAÉ - ES", "PIÚMA - ES", "SANTO ANTÔNIO DE PÁDUA - ES", "SÃO FIDÉLIS - ES", "SÃO JOSÉ DE UBÁ - ES", "SERRA - ES", "VILA VELHA - ES", "VITÓRIA - ES"
     "AGUANIL - MG", "ALPINÓPOLIS - MG", "ARAXÁ - MG", "BOA ESPERANÇA - MG", "CAMPO DO MEIO - MG", "CAMPOS ALTOS - MG", "CAMPOS GERAIS - MG", "CARMO DO RIO CLARO - MG", "CONQUISTA - MG", "COQUEIRAL - MG", "COROMANDEL - MG", "CRISTAIS - MG", "DELTA - MG", "FORTALEZA DE MINAS - MG", "GUAPÉ - MG", "GUARANÉSIA - MG", "GUAXUPÉ - MG", "IBIÁ - MG", "ILICÍNEA - MG", "ITAÚ DE MINAS - MG", "JACUÍ - MG", "MONTE SANTO DE MINAS - MG", "NEPOMUCENO - MG", "NOVA PONTE - MG", "PASSOS - MG", "PEDRINÓPOLIS - MG", "PERDIZES - MG", "PRATÁPOLIS - MG", "PRATINHA - MG", "SACRAMENTO - MG", "SANTA JULIANA - MG", "SANTANA DA VARGEM - MG", "SÃO GOTARDO - MG", "SÃO JOÃO BATISTA DO GLÓRIA - MG", "SÃO JOSÉ DA BARRA - MG", "SÃO SEBASTIÃO DO PARAÍSO - MG", "SÃO TOMÁS DE AQUINO - MG", "SERRA DO SALITRE - MG", "TAPIRA - MG", "UBERABA - MG", "UBERLÂNDIA - MG",
     "ALTINÓPOLIS - SP", "ARAMINA - SP", "BRASÍLIA - DF", "FRANCA - SP", "GUARÁ - SP", "IGARAPAVA - SP", "IPUÃ - SP", "ITIRAPUÃ - SP", "ITUVERAVA - SP", "MORRO AGUDO - SP", "ORLÂNDIA - SP", "PATROCÍNIO PAULISTA - SP", "RIBEIRÃO PRETO - SP", "SÃO JOAQUIM DA BARRA - SP", "SÃO JOSÉ DA BELA VISTA - SP"
 ]
@@ -598,8 +596,8 @@ CITIES_API_TERRITORIO_TELEFONEFIXO_T5_a_T7 = [
     "VASSOURAS - RJ", "VOLTA REDONDA - RJ",     "ANCHIETA - ES", "APERIBÉ - ES", "CACHOEIRO DE ITAPEMIRIM - ES", "CAMBUCI - ES", 
     "CAMPOS DOS GOYTACAZES - ES", "CANTAGALO - ES", "CARIACICA - ES", "CATAGUASES - ES", 
     "CORDEIRO - ES", "DUAS BARRAS - ES", "GUARAPARI - ES", "ITAOCARA - ES", "ITAPEMIRIM - ES", 
-    "ITAPERUNA - ES", "LAJE DO MURIAÉ - RJ", "MACUCO - ES", "MARATAÍZES - ES", "MIRACEMA - ES", 
-    "MURIAÉ - MG", "PIÚMA - ES", "SANTO ANTÔNIO DE PÁDUA - ES", "SÃO FIDÉLIS - ES", 
+    "ITAPERUNA - ES", "LAJE DO MURIAÉ - ES", "MACUCO - ES", "MARATAÍZES - ES", "MIRACEMA - ES", 
+    "MURIAÉ - ES", "PIÚMA - ES", "SANTO ANTÔNIO DE PÁDUA - ES", "SÃO FIDÉLIS - ES", 
     "SÃO JOSÉ DE UBÁ - ES", "SERRA - ES", "VILA VELHA - ES", "VITÓRIA - ES"
 ]
 
@@ -681,13 +679,229 @@ CITIES_API_TERRITORIO_CIDADES_ESPECIAIS_3 = [
 
 # CIDADES DA OPERADORA DESKTOP - INTERNET
 
-CITIES_API_DESKTOP_BRONZE = ["MOGI GUAÇU - SP", "SÃO JOSÉ DOS CAMPOS - SP", "AGUAÍ - SP", "ÁGUAS DE SANTA BÁRBARA - SP", "AGUDOS - SP", "ALUMÍNIO - SP", "AMERICANA - SP", "AMÉRICO BRASILIENSE - SP", "AMPARO - SP", "ANGATUBA - SP", "ARAÇARIGUAMA - SP", "ARAÇOIABA DA SERRA - SP", "ARANDU - SP", "ARARAQUARA - SP", "ARARAS - SP", "AREALVA - SP", "AREIÓPOLIS - SP", "ATIBAIA - SP", "AVAÍ - SP", "AVARÉ - SP", "BARRA BONITA - SP", "BAURU - SP", "BIRITIBA MIRIM - SP", "BIRITIBA-MIRIM - SP", "BOA ESPERANÇA DO SUL - SP", "BOCAINA - SP", "BOFETE - SP", "BOITUVA - SP", "BOM JESUS DOS PERDÕES - SP", "BORBOREMA - SP", "BOREBI - SP", "BOTUCATU - SP", "BRAGANÇA PAULISTA - SP", "CABREÚVA - SP", "CAÇAPAVA - SP", "CAIEIRAS - SP", "CAMPINA DO MONTE ALEGRE - SP", "CAMPINAS - SP", "CAMPO LIMPO PAULISTA - SP", "CÂNDIDO RODRIGUES - SP", "CAPELA DO ALTO - SP", "CAPIVARI - SP", "CERQUEIRA CÉSAR - SP", "CERQUILHO - SP", "CESÁRIO LANGE - SP", "COLINA - SP", "CONCHAL - SP", "CONCHAS - SP", "CORDEIRÓPOLIS - SP", "CRISTAIS PAULISTA - SP", "DOBRADA - SP", "DOIS CÓRREGOS - SP", "DOURADO - SP", "ELIAS FAUSTO - SP", "ENGENHEIRO COELHO - SP", "FERNANDO PRESTES - SP", "FRANCA - SP", "FRANCISCO MORATO - SP", "FRANCO DA ROCHA - SP", "GAVIÃO PEIXOTO - SP", "GUAÍRA - SP", "GUARANTÃ - SP", "GUARAREMA - SP", "GUARIBA - SP", "GUARUJÁ - SP", "GUATAPARÁ - SP", "HOLAMBRA - SP", "HORTOLÂNDIA - SP", "LARAS - SP", "IBATÉ - SP", "IBITINGA - SP", "IGARAÇU DO TIETÊ - SP", "IGARATÁ - SP", "IPERÓ - SP", "IRACEMÁPOLIS - SP", "ITAÍ - SP", "ITAJOBI - SP", "ITAJU - SP", "ITANHAÉM - SP", "ITAPUÍ - SP", "ITATINGA - SP", "ITIRAPUÃ - SP", "ITU - SP", "JABORANDI - SP", "JABOTICABAL - SP", "JACAREÍ - SP", "JAGUARIÚNA - SP", "JARINU - SP", "JAÚ - SP", "JUMIRIM - SP", "JUNDIAÍ - SP", "LARANJAL PAULISTA - SP", "LENÇÓIS PAULISTA - SP", "LINDÓIA - SP", "LOUVEIRA - SP", "MACATUBA - SP", "MAIRIPORÃ - SP", "MANDURI - SP", "MATÃO - SP", "MINEIROS DO TIETÊ - SP", "MOGI DAS CRUZES - SP", "MONTE MOR - SP", "MOTUCA - SP", "NAZARÉ PAULISTA - SP", "NOVA EUROPA - SP", "NOVA ODESSA - SP", "ÓLEO - SP", "PARANAPANEMA - SP", "PARDINHO - SP", "PATROCÍNIO PAULISTA - SP", "PAULÍNIA - SP", "PEDERNEIRAS - SP", "PEDREIRA - SP", "PEREIRAS - SP", "PINDORAMA - SP", "PIRACAIA - SP", "PIRACICABA - SP", "PIRATININGA - SP", "PITANGUEIRAS - SP", "PORANGABA - SP", "PRAIA GRANDE - SP", "PRATÂNIA - SP", "PRESIDENTE ALVES - SP", "QUADRA - SP", "RAFARD - SP", "RIBEIRÃO BONITO - SP", "RIBEIRÃO CORRENTE - SP", "RIBEIRÃO PRETO - SP", "RINCÃO - SP", "RIO CLARO - SP", "RIO DAS PEDRAS - SP", "SALESÓPOLIS - SP", "SALTINHO - SP", "SALTO DE PIRAPORA - SP", "SANTA ADÉLIA - SP", "SANTA BÁRBARA D’OESTE - SP", "ITAPETININGA - SP", "ITÁPOLIS - SP", "SANTA ERNESTINA - SP", "SANTA GERTRUDES - SP", "SANTA LÚCIA - SP", "SANTO ANTÔNIO DE POSSE - SP", "SANTOS - SP", "SÃO CARLOS - SP", "SÃO MANUEL - SP", "SÃO VICENTE - SP", "SARAPUÍ - SP", "SERRA AZUL - SP", "SERRA NEGRA - SP", "SOROCABA - SP", "SUMARÉ - SP", "TABATINGA - SP", "TATUÍ - SP", "TAUBATÉ - SP", "TIETÊ - SP", "TRABIJU - SP", "TREMEMBÉ - SP", "VALINHOS - SP", "VÁRZEA PAULISTA - SP", "VINHEDO - SP", "VOTORANTIM - SP",  "MONGAGUÁ - SP"]
-CITIES_API_DESKTOP_PRATA = ["BÁLSAMO - SP", "BARRETOS - SP", "OLÍMPIA - SP"]
-CITIS_API_DESKTOP_OURO = ["BEBEDOURO - SP"]
-CITIS_API_DESKTOP_PLATINA = ["SANTA CRUZ DAS PALMEIRAS - SP", "CAFELÂNDIA - SP", "CASA BRANCA - SP", "COSMÓPOLIS - SP", "ESTIVA GERBI - SP", "INDAIATUBA - SP", "ITUPEVA - SP", "LINS - SP", "CEDRAL - SP", "ARTUR NOGUEIRA - SP", "CRAVINHOS - SP", "CUBATÃO - SP", "DESCALVADO - SP", "LEME - SP", "LIMEIRA - SP", "MIRASSOL - SP", "MOGI-MIRIM - SP", "MONTE ALEGRE DO SUL - SP", "MONTE ALTO - SP", "PERUÍBE - SP", "PILAR DO SUL - SP", "PIRASSUNUNGA - SP", "PORTO FERREIRA - SP", "SANTA RITA DO PASSA QUATRO - SP", "SÃO JOSÉ DO RIO PRETO - SP",  "TAMBAÚ - SP"]
-CITIS_API_DESKTOP_DIAMANTE = ["SÃO PAULO - SP"]
-CITIS_API_DESKTOP_ASCENDENTE = ["SANTA BRANCA - SP"]
+# CITIES_API_DESKTOP_BRONZE = ["MOGI GUAÇU - SP", "SÃO JOSÉ DOS CAMPOS - SP", "AGUAÍ - SP", "ÁGUAS DE SANTA BÁRBARA - SP", "AGUDOS - SP", "ALUMÍNIO - SP", "AMERICANA - SP", "AMÉRICO BRASILIENSE - SP", "AMPARO - SP", "ANGATUBA - SP", "ARAÇARIGUAMA - SP", "ARAÇOIABA DA SERRA - SP", "ARANDU - SP", "ARARAQUARA - SP", "ARARAS - SP", "AREALVA - SP", "AREIÓPOLIS - SP", "ATIBAIA - SP", "AVAÍ - SP", "AVARÉ - SP", "BARRA BONITA - SP", "BAURU - SP", "BIRITIBA MIRIM - SP", "BIRITIBA-MIRIM - SP", "BOA ESPERANÇA DO SUL - SP", "BOCAINA - SP", "BOFETE - SP", "BOITUVA - SP", "BOM JESUS DOS PERDÕES - SP", "BORBOREMA - SP", "BOREBI - SP", "BOTUCATU - SP", "BRAGANÇA PAULISTA - SP", "CABREÚVA - SP", "CAÇAPAVA - SP", "CAIEIRAS - SP", "CAMPINA DO MONTE ALEGRE - SP", "CAMPINAS - SP", "CAMPO LIMPO PAULISTA - SP", "CÂNDIDO RODRIGUES - SP", "CAPELA DO ALTO - SP", "CAPIVARI - SP", "CERQUEIRA CÉSAR - SP", "CERQUILHO - SP", "CESÁRIO LANGE - SP", "COLINA - SP", "CONCHAL - SP", "CONCHAS - SP", "CORDEIRÓPOLIS - SP", "CRISTAIS PAULISTA - SP", "DOBRADA - SP", "DOIS CÓRREGOS - SP", "DOURADO - SP", "ELIAS FAUSTO - SP", "ENGENHEIRO COELHO - SP", "FERNANDO PRESTES - SP", "FRANCA - SP", "FRANCISCO MORATO - SP", "FRANCO DA ROCHA - SP", "GAVIÃO PEIXOTO - SP", "GUAÍRA - SP", "GUARANTÃ - SP", "GUARAREMA - SP", "GUARIBA - SP", "GUARUJÁ - SP", "GUATAPARÁ - SP", "HOLAMBRA - SP", "HORTOLÂNDIA - SP", "LARAS - SP", "IBATÉ - SP", "IBITINGA - SP", "IGARAÇU DO TIETÊ - SP", "IGARATÁ - SP", "IPERÓ - SP", "IRACEMÁPOLIS - SP", "ITAÍ - SP", "ITAJOBI - SP", "ITAJU - SP", "ITANHAÉM - SP", "ITAPUÍ - SP", "ITATINGA - SP", "ITIRAPUÃ - SP", "ITU - SP", "JABORANDI - SP", "JABOTICABAL - SP", "JACAREÍ - SP", "JAGUARIÚNA - SP", "JARINU - SP", "JAÚ - SP", "JUMIRIM - SP", "JUNDIAÍ - SP", "LARANJAL PAULISTA - SP", "LENÇÓIS PAULISTA - SP", "LINDÓIA - SP", "LOUVEIRA - SP", "MACATUBA - SP", "MAIRIPORÃ - SP", "MANDURI - SP", "MATÃO - SP", "MINEIROS DO TIETÊ - SP", "MOGI DAS CRUZES - SP", "MONTE MOR - SP", "MOTUCA - SP", "NAZARÉ PAULISTA - SP", "NOVA EUROPA - SP", "NOVA ODESSA - SP", "ÓLEO - SP", "PARANAPANEMA - SP", "PARDINHO - SP", "PATROCÍNIO PAULISTA - SP", "PAULÍNIA - SP", "PEDERNEIRAS - SP", "PEDREIRA - SP", "PEREIRAS - SP", "PINDORAMA - SP", "PIRACAIA - SP", "PIRACICABA - SP", "PIRATININGA - SP", "PITANGUEIRAS - SP", "PORANGABA - SP", "PRAIA GRANDE - SP", "PRATÂNIA - SP", "PRESIDENTE ALVES - SP", "QUADRA - SP", "RAFARD - SP", "RIBEIRÃO BONITO - SP", "RIBEIRÃO CORRENTE - SP", "RIBEIRÃO PRETO - SP", "RINCÃO - SP", "RIO CLARO - SP", "RIO DAS PEDRAS - SP", "SALESÓPOLIS - SP", "SALTINHO - SP", "SALTO DE PIRAPORA - SP", "SANTA ADÉLIA - SP", "SANTA BÁRBARA D’OESTE - SP", "ITAPETININGA - SP", "ITÁPOLIS - SP", "SANTA ERNESTINA - SP", "SANTA GERTRUDES - SP", "SANTA LÚCIA - SP", "SANTO ANTÔNIO DE POSSE - SP", "SANTOS - SP", "SÃO CARLOS - SP", "SÃO MANUEL - SP", "SÃO VICENTE - SP", "SARAPUÍ - SP", "SERRA AZUL - SP", "SERRA NEGRA - SP", "SOROCABA - SP", "SUMARÉ - SP", "TABATINGA - SP", "TATUÍ - SP", "TAUBATÉ - SP", "TIETÊ - SP", "TRABIJU - SP", "TREMEMBÉ - SP", "VALINHOS - SP", "VÁRZEA PAULISTA - SP", "VINHEDO - SP", "VOTORANTIM - SP",  "MONGAGUÁ - SP"]
+# CITIES_API_DESKTOP_PRATA = ["BÁLSAMO - SP", "BARRETOS - SP", "OLÍMPIA - SP"]
+# CITIS_API_DESKTOP_OURO = ["BEBEDOURO - SP"]
+# CITIS_API_DESKTOP_PLATINA = ["SANTA CRUZ DAS PALMEIRAS - SP", "CAFELÂNDIA - SP", "CASA BRANCA - SP", "COSMÓPOLIS - SP", "ESTIVA GERBI - SP", "INDAIATUBA - SP", "ITUPEVA - SP", "LINS - SP", "CEDRAL - SP", "ARTUR NOGUEIRA - SP", "CRAVINHOS - SP", "CUBATÃO - SP", "DESCALVADO - SP", "LEME - SP", "LIMEIRA - SP", "MIRASSOL - SP", "MOGI-MIRIM - SP", "MONTE ALEGRE DO SUL - SP", "MONTE ALTO - SP", "PERUÍBE - SP", "PILAR DO SUL - SP", "PIRASSUNUNGA - SP", "PORTO FERREIRA - SP", "SANTA RITA DO PASSA QUATRO - SP", "SÃO JOSÉ DO RIO PRETO - SP",  "TAMBAÚ - SP"]
+# CITIS_API_DESKTOP_DIAMANTE = ["SÃO PAULO - SP"]
+# CITIS_API_DESKTOP_ASCENDENTE = ["SANTA BRANCA - SP"]
 
+DESKTOP_PADRAO = [
+    "Aguaí - SP",
+    "Alumínio - SP",
+    "Americana - SP",
+    "Américo Brasiliense - SP",
+    "Amparo - SP",
+    "Araçariguama - SP",
+    "Araraquara - SP",
+    "Atibaia - SP",
+    "Avaí - SP",
+    "Bauru - SP",
+    "Biritiba-Mirim - SP",
+    "Boa Esperança do Sul - SP",
+    "Bom Jesus dos Perdões - SP",
+    "Borborema - SP",
+    "Botucatu - SP",
+    "Bragança Paulista - SP",
+    "Cabreúva - SP",
+    "Caçapava - SP",
+    "Caieiras - SP",
+    "Campinas - SP",
+    "Campo Limpo Paulista - SP",
+    "Capivari - SP",
+    "Casa Branca - SP",
+    "Colina - SP",
+    "Cordeirópolis - SP",
+    "Cubatão - SP",
+    "Descalvado - SP",
+    "Dobrada - SP",
+    "Dourado - SP",
+    "Elias Fausto - SP",
+    "Engenheiro Coelho - SP",
+    "Fernando Prestes - SP",
+    "Francisco Morato - SP",
+    "Franco da Rocha - SP",
+    "Gavião Peixoto - SP",
+    "Guaíra - SP",
+    "Guarantã - SP",
+    "Guararema - SP",
+    "Guariba - SP",
+    "Guarujá - SP",
+    "Guatapará - SP",
+    "Holambra - SP",
+    "Hortolândia - SP",
+    "Ibaté - SP",
+    "Ibitinga - SP",
+    "Igaratá - SP",
+    "Iracemápolis - SP",
+    "Itajobi - SP",
+    "Itanhaém - SP",
+    "Itápolis - SP",
+    "Jaborandi - SP",
+    "Jaboticabal - SP",
+    "Jacareí - SP",
+    "Jaguariúna - SP",
+    "Jarinu - SP",
+    "Lençóis Paulista - SP",
+    "Lindóia - SP",
+    "Louveira - SP",
+    "Mairiporã - SP",
+    "Matão - SP",
+    "Mogi das Cruzes - SP",
+    "Mongaguá - SP",
+    "Monte Alto - SP",
+    "Monte Mor - SP",
+    "Motuca - SP",
+    "Nazaré Paulista - SP",
+    "Nova Europa - SP",
+    "Nova Odessa - SP",
+    "Paulínia - SP",
+    "Pedreira - SP",
+    "Pindorama - SP",
+    "Piracaia - SP",
+    "Piracicaba - SP",
+    "Pirajuí - SP",
+    "Piratininga - SP",
+    "Pitangueiras - SP",
+    "Praia Grande - SP",
+    "Presidente Alves - SP",
+    "Rafard - SP",
+    "Ribeirão Bonito - SP",
+    "Rincão - SP",
+    "Salesópolis - SP",
+    "Santa Adélia - SP",
+    "Santa Bárbara D'Oeste - SP",
+    "Santa Branca - SP",
+    "Santa Gertrudes - SP",
+    "Santa Lúcia - SP",
+    "Santa Rita do Passa Quatro - SP",
+    "Santo Antônio de Posse - SP",
+    "Santos - SP",
+    "São Bernardo do Campo - SP",
+    "São Carlos - SP",
+    "São José dos Campos - SP",
+    "São Vicente - SP",
+    "Serra Azul - SP",
+    "Serra Negra - SP",
+    "Sorocaba - SP",
+    "Sumaré - SP",
+    "Tabatinga - SP",
+    "Taubaté - SP",
+    "Tremembé - SP",
+    "Várzea Paulista - SP",
+    "Vinhedo - SP",
+    "Votorantim - SP"
+]
+
+DESKTOP_BARRETOS = [
+    "Barretos - SP",
+    "Bebedouro - SP",
+    "Olímpia - SP"
+]
+
+DESKTOP_TIO_SAM = [
+    "Araras - SP",
+    "Artur Nogueira - SP",
+    "Bady Bassitt - SP",
+    "Cafelândia - SP",
+    "Cedral - SP",
+    "Conchal - SP",
+    "Cosmópolis - SP",
+    "Cravinhos - SP",
+    "Estiva Gerbi - SP",
+    "Guapiaçu - SP",
+    "Indaiatuba - SP",
+    "Itupeva - SP",
+    "Jundiaí - SP",
+    "Leme - SP",
+    "Limeira - SP",
+    "Lins - SP",
+    "Mirassol - SP",
+    "Mogi Guaçu - SP",
+    "Mogi Mirim - SP",
+    "Peruíbe - SP",
+    "Pirassununga - SP",
+    "Porto Ferreira - SP",
+    "Santa Cruz das Palmeiras - SP",
+    "Santa Rosa de Viterbo - SP",
+    "São José do Rio Preto - SP",
+    "Tambaú - SP",
+    "Uchoa - SP",
+    "Valinhos - SP"
+]
+
+FASTERNET_PADRAO = [
+    "Angatuba - SP",
+    "Araçoiaba da Serra - SP",
+    "Boituva - SP",
+    "Campina do Monte Alegre - SP",
+    "Capela do Alto - SP",
+    "Cerquilho - SP",
+    "Cesário Lange - SP",
+    "Conchas - SP",
+    "Cristais Paulista - SP",
+    "Iperó - SP",
+    "Itirapuã - SP",
+    "Jumirim - SP",
+    "Laranjal Paulista - SP",
+    "Monte Alegre do Sul - SP",
+    "Patrocínio Paulista - SP",
+    "Pereiras - SP",
+    "Pilar do Sul - SP",
+    "Porangaba - SP",
+    "Quadra - SP",
+    "Ribeirão Corrente - SP",
+    "Rio Claro - SP",
+    "Rio das Pedras - SP",
+    "Saltinho - SP",
+    "Salto de Pirapora - SP",
+    "Sarapuí - SP",
+    "Tatuí - SP",
+    "Tietê - SP"
+]
+
+FASTERNET_TIO_SAM = [
+    "Bofete - SP",
+    "Franca - SP",
+    "Itapetininga - SP",
+    "Itú - SP",
+    "Salto - SP"
+]
+
+LPNET_PADRAO = [
+    "Agudos - SP",
+    "Areiópolis - SP",
+    "Barra Bonita - SP",
+    "Bocaina - SP",
+    "Borebi - SP",
+    "Cândido Rodrigues - SP",
+    "Dois Córregos - SP",
+    "Igaraçu do Tietê - SP",
+    "Itaju - SP",
+    "Itapuí - SP",
+    "Jaú - SP",
+    "Macatuba - SP",
+    "Mineiros do Tietê - SP",
+    "Óleo - SP",
+    "Paranapanema - SP",
+    "Pederneiras - SP",
+    "Pratânia - SP",
+    "Santa Ernestina - SP",
+    "São Manuel - SP",
+    "Trabiju - SP"
+]
+
+LPNET_TIO_SAM = [
+    "Águas de Santa Bárbara - SP",
+    "Arandu - SP",
+    "Avaré - SP",
+    "Cerqueira César - SP",
+    "Iaras - SP",
+    "Itaí - SP",
+    "Itatinga - SP",
+    "Manduri - SP",
+    "Pardinho - SP"
+]
 
 # CIDADES DA OPERADORA ALGAR - INTERNET
 
@@ -750,17 +964,17 @@ BL_FIBRA = [
 
 def get_api_url_desktop(cidade):
     if cidade in CITIES_API_DESKTOP_BRONZE:
-        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_desktop_bronze"
+        return "https://workflow-solucoes.onrender.com/webhook/workflow_desktop_bronze"
     elif cidade in CITIES_API_DESKTOP_PRATA:
-        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_desktop_prata"
+        return "https://workflow-solucoes.onrender.com/webhook/workflow_desktop_prata"
     elif cidade in CITIS_API_DESKTOP_OURO:
-        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_desktop_ouro"
+        return "https://workflow-solucoes.onrender.com/webhook/workflow_desktop_ouro"
     elif cidade in CITIS_API_DESKTOP_PLATINA:
-        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_desktop_platina"
+        return "https://workflow-solucoes.onrender.com/webhook/workflow_desktop_platina"
     elif cidade in CITIS_API_DESKTOP_DIAMANTE:
-        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_desktop_diamante"
+        return "https://workflow-solucoes.onrender.com/webhook/workflow_desktop_diamante"
     elif cidade in CITIS_API_DESKTOP_ASCENDENTE:
-        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_desktop_ascedente"
+        return "https://workflow-solucoes.onrender.com/webhook/workflow_desktop_ascedente"
     else: 
         return None
 
@@ -770,19 +984,19 @@ def get_api_url_giga(cidade):
     urls = []
 
     if cidade in CITIES_API_TERRITORIO_T1_a_T9:
-        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowt1_a_t9")
+        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowt1_a_t9")
     if cidade in CITIES_API_TERRITORIO_T10_a_T14:
-        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowt10_t14")
+        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowt10_t14")
     if cidade in CITIES_API_TERRITORIO_TELEFONEFIXO_T5_a_T7:
-        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_TELEFONEFIXO_T5_a_T7")
+        urls.append("https://workflow-solucoes.onrender.com/webhook/workflow_TELEFONEFIXO_T5_a_T7")
     if cidade in CITIES_API_TERRITORIO_ALTOS_PARNAIBA_TERESINA:
-        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowt_ALTOS_PARNAIBA_TERESINA")
+        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowt_ALTOS_PARNAIBA_TERESINA")
     if cidade in CITIES_API_TERRITORIO_CIDADES_ESPECIAIS_1:
-        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowt_CIDADES_ESPECIAIS_1")
+        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowt_CIDADES_ESPECIAIS_1")
     if cidade in CITIES_API_TERRITORIO_CIDADES_ESPECIAIS_2:
-        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowt_CIDADES_ESPECIAIS_2")
+        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowt_CIDADES_ESPECIAIS_2")
     if cidade in CITIES_API_TERRITORIO_CIDADES_ESPECIAIS_3:
-        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowt_CIDADES_ESPECIAIS_3") 
+        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowt_CIDADES_ESPECIAIS_3") 
 
     return urls or None
 
@@ -791,32 +1005,32 @@ def get_api_url_vero(cidade):
     urls = []
 
     if cidade in CITIES_API_OURO:
-        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowouro")
+        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowouro")
     if cidade in CITYES_API_GRAFENO_75:
-        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_grafeno_75")
+        urls.append("https://workflow-solucoes.onrender.com/webhook/workflow_grafeno_75")
     if cidade in CITYES_API_GRAFENO_80:
-        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_grafeno_80")
+        urls.append("https://workflow-solucoes.onrender.com/webhook/workflow_grafeno_80")
     if cidade in CITIES_API_SAFIRA:
-        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_safira")
+        urls.append("https://workflow-solucoes.onrender.com/webhook/workflow_safira")
     if cidade in CITIES_API_PADRAO:
-        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowpadrao")
+        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowpadrao")
     if cidade in CITIES_API_REDE_NEUTRA:
-        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowredeneutra")
+        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowredeneutra")
     if cidade in CITIES_API_PRATA:
-        urls.append("https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflowprata")
+        urls.append("https://workflow-solucoes.onrender.com/webhook/workflowprata")
     
     return urls or None 
 
 
 def get_api_url_algar(cidade):
     if cidade in CITIES_ALGAR_600MB:
-        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_algar_600MB"
+        return "https://workflow-solucoes.onrender.com/webhook/workflow_algar_600MB"
     elif cidade in CITIES_ALGAR_800MB:
-        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_algar_800MB"
+        return "https://workflow-solucoes.onrender.com/webhook/workflow_algar_800MB"
     elif cidade in CITIES_ALGAR_SPECIALCITIES:
-        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_algar_specialcities"
+        return "https://workflow-solucoes.onrender.com/webhook/workflow_algar_specialcities"
     else: 
-        return "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_algar"
+        return "https://workflow-solucoes.onrender.com/webhook/workflow_algar"
 
 
 
@@ -904,7 +1118,7 @@ def atualizar_campo_e_chamar_api_bl(cidade, entity_id):
     atualizar_campo_no_crm(entity_id)
 
 
-    url = "https://grupo-solucoes-workflow-bitrix24.z957hu.easypanel.host/webhook/workflow_bl-fibra" 
+    url = "https://workflow-solucoes.onrender.com/webhook/workflow_bl-fibra" 
 
 
     if cidade not in BL_FIBRA:
@@ -1128,4 +1342,5 @@ def update_plan_bl(entity_id):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=1473)
+    app.run(host='0.0.0.0', port=5711)
+
