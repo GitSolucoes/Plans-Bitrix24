@@ -8,8 +8,9 @@ app = Flask(__name__)
 
 load_dotenv()
 
+BITRIX_WEBHOOK_URL = os.getenv('BITRIX_WEBHOOK_URL')
 
-BITRIX_WEBHOOK_URL = f"https://marketingsolucoes.bitrix24.com.br/rest/5332/59ms4q24u7gxg7b7/"
+BITRIX_WEBHOOK_URL = f"{BITRIX_WEBHOOK_URL}"
 
 
 
@@ -962,6 +963,10 @@ BL_FIBRA = [
 ]
 
 
+url_vps = {'https://grupo--solucoes-workflow-bitrix24.rvc6im.easypanel.host'}
+
+
+
 def get_api_url_desktop(cidade):
     if cidade in CITIES_API_DESKTOP_BRONZE:
         return "https://workflow-solucoes.onrender.com/webhook/workflow_desktop_bronze"
@@ -1343,4 +1348,3 @@ def update_plan_bl(entity_id):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=1473)
-
