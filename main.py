@@ -967,18 +967,20 @@ BL_FIBRA = [
 
 
 def get_api_url_desktop(cidade):
-    if cidade in CITIES_API_DESKTOP_BRONZE:
-        return f"{URL_VPS}webhook/workflow_desktop_bronze"
-    elif cidade in CITIES_API_DESKTOP_PRATA:
-        return f"{URL_VPS}/webhook/workflow_desktop_prata"
-    elif cidade in CITIS_API_DESKTOP_OURO:
-        return f"{URL_VPS}/webhook/workflow_desktop_ouro"
-    elif cidade in CITIS_API_DESKTOP_PLATINA:
-        return f"{URL_VPS}/webhook/workflow_desktop_platina"
-    elif cidade in CITIS_API_DESKTOP_DIAMANTE:
-        return f"{URL_VPS}/webhook/workflow_desktop_diamante"
-    elif cidade in CITIS_API_DESKTOP_ASCENDENTE:
-        return f"{URL_VPS}/webhook/workflow_desktop_ascedente"
+    if cidade in DESKTOP_PADRAO:
+        return f"{URL_VPS}webhook/workflow_desktop-padrao"
+    elif cidade in DESKTOP_BARRETOS:
+        return f"{URL_VPS}/webhook/workflow_desktop-barretos"
+    elif cidade in DESKTOP_TIO_SAM:
+        return f"{URL_VPS}/webhook/workflow_desktop-tiosam"
+    elif cidade in FASTERNET_PADRAO:
+        return f"{URL_VPS}/webhook/workflow_fasternet-padrao"
+    elif cidade in FASTERNET_TIO_SAM:
+        return f"{URL_VPS}/webhook/workflow_fasternet-tiosam"
+    elif cidade in LPNET_PADRAO:
+        return f"{URL_VPS}/webhook/workflow_lpnet-padrao"
+     elif cidade in LPNET_TIO_SAM:
+        return f"{URL_VPS}/webhook/workflow_lpnet-tiosam"
     else: 
         return None
 
