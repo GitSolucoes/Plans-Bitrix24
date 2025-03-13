@@ -26,7 +26,7 @@ def log_erro(mensagem, e=None):
 
 
 # CIDADES DA OPERADORA VERO - INTERNET
-CITIES_API_OURO = [
+CITIES_API_VERO_OURO = [
     "ALVORADA - RS",
     "ANDRADINA - SP",
     "ARACATUBA - SP",
@@ -70,14 +70,23 @@ CITIES_API_OURO = [
     "URUGUAIANA - RS",
     "VENÂNCIO AIRES - RS",
     "VIÇOSA - MG",
-    "XANXERÊ - SC",
+    "XANXERÊ - SC"
 ]
 
-CITIES_API_PADRAO = [
+CITIES_API_VERO_PADRAO = [
+    "ARROIO DO SAL - RS",
+    "CONSELHEIRO LAFAIETE - MG",
+    "IMBÉ - RS",
+    "LIMA DUARTE - MG",
+    "MATIAS BARBOSA - MG",
+    "PARÁ DE MINAS - MG",
+    "SÃO JOSÉ DO CEDRO - SC",
+    "SÃO MIGUEL DO OESTE - SC",
+    "TEÓFILO OTONI - MG",
+    "TRAMANDAÍ - RS",
     "ALFREDO VASCONCELOS - MG",
     "ANCHIETA - SC",
     "ANTÔNIO CARLOS - MG",
-    "ARROIO DO SAL - RS",
     "BALNEÁRIO PINHAL - RS",
     "BANDEIRANTE - SC",
     "BARRACÃO - PR",
@@ -86,15 +95,14 @@ CITIES_API_PADRAO = [
     "BOM SUCESSO - MG",
     "CAMPO ERÊ - SC",
     "CAPELA DE SANTANA - RS",
-    "CARANDAÍ - MG",
     "CARAÁ - RS",
+    "CARANDAÍ - MG",
     "CARMO DA MATA - MG",
     "CARMÓPOLIS DE MINAS - MG",
     "CIDREIRA - RS",
     "CLÁUDIO - MG",
     "CONCEIÇÃO DA BARRA DE MINAS - MG",
     "CONGONHAS - MG",
-    "CONSELHEIRO LAFAIETE - MG",
     "CRUZ ALTA - RS",
     "DESCANSO - SC",
     "DIONÍSIO CERQUEIRA - SC",
@@ -107,21 +115,18 @@ CITIES_API_PADRAO = [
     "GUARARÁ - MG",
     "GUARUJÁ DO SUL - SC",
     "IJUÍ - RS",
-    "IMBÉ - RS",
     "ITAGUARA - MG",
     "ITATIAIUÇU - MG",
     "ITAÚNA - MG",
     "JECEABA - MG",
     "JUIZ DE FORA - MG",
     "JUPIÁ - SC",
-    "LIMA DUARTE - MG",
     "MAQUINÉ - RS",
     "MAR DE ESPANHA - MG",
     "MARATÁ - RS",
     "MARIÓPOLIS - PR",
     "MARMELEIRO - PR",
     "MARTINHO CAMPOS - MG",
-    "MATIAS BARBOSA - MG",
     "MONTENEGRO - RS",
     "NOVA SANTA RITA - RS",
     "NOVA SERRANA - MG",
@@ -132,7 +137,6 @@ CITIES_API_PADRAO = [
     "PALMA SOLA - SC",
     "PANAMBI - RS",
     "PARECI NOVO - RS",
-    "PARÁ DE MINAS - MG",
     "PERDÕES - MG",
     "PORTO ALEGRE - RS",
     "PRINCESA - SC",
@@ -141,29 +145,25 @@ CITIES_API_PADRAO = [
     "RIBEIRÃO VERMELHO - MG",
     "SANTA CRUZ DE MINAS - MG",
     "SANTA LUZIA - MG",
+    "SANTO ÂNGELO - RS",
     "SANTO ANTÔNIO DA PATRULHA - RS",
     "SANTO ANTÔNIO DO AMPARO - MG",
-    "SANTO ÂNGELO - RS",
     "SÃO BRÁS DO SUAÇUÍ - MG",
     "SÃO DOMINGOS - SC",
     "SÃO FRANCISCO DE PAULA - MG",
-    "SÃO JOSÉ DO CEDRO - SC",
     "SÃO JOSÉ DO SUL - RS",
     "SÃO LOURENÇO DO OESTE - SC",
-    "SÃO MIGUEL DO OESTE - SC",
     "TERRA DE AREIA - RS",
-    "TEÓFILO OTONI - MG",
     "TIRADENTES - MG",
     "TORRES - RS",
-    "TRAMANDAÍ - RS",
-    "TRIUNFO - RS",
     "TRÊS CACHOEIRAS - RS",
+    "TRIUNFO - RS",
     "VIAMÃO - RS",
     "VITORINO - PR",
-    "XANGRI-LÁ - RS",
+    "XANGRI-LA - RS"
 ]
 
-CITIES_API_PRATA = [
+CITIES_API_VERO_PRATA = [
     "AGUDOS - SP",
     "ALFREDO MARCONDES - SP",
     "AMERICANA - SP",
@@ -277,7 +277,7 @@ CITIES_API_PRATA = [
     "AMARALINA - GO",
     "ANAURILANDIA - MS",
     "ANGELINA - SC",
-    "ANTÔNIO CARLOS - SC",
+    "ANTÔNIO CARLOS - SC - SC",
     "BARUERI - SP",
     "BATAGUASSU - MS",
     "BATAYPORA - MS",
@@ -286,17 +286,20 @@ CITIES_API_PRATA = [
     "BOA ESPERANÇA - MG",
     "BOM PRINCÍPIO - RS",
     "BRASÍLIA - DF",
-    "APARECIDA DE GOIANIA - GO",
-    "BELO HORIZONTE - MG",
-    "CONTAGEM - MG",
-    "GOIANIA - GO",
-    "RIBEIRÃO DAS NEVES - MG",
-    "SENADOR CANEDO - GO",
-    "SETE LAGOAS - MG",
-    "TRINDADE - GO",
-    "UBÁ - MG",
     "BRUMADINHO - MG",
     "BURITI ALEGRE - GO",
+    "CACHOEIRA ALTA - GO",
+    "CAETÉ - MG",
+    "CAMPINORTE - GO",
+    "CAMPO BELO - MG",
+    "CAMPO GRANDE - MS",
+    "CANELINHA - SC",
+    "CANOAS - RS",
+    "CATALAO - GO",
+    "CEZARINA - GO",
+    "COTIA - SP",
+    "CROMINIA - GO",
+    "DOURADOS - MS",
     "EDEALINA - GO",
     "EDEIA - GO",
     "ESTÂNCIA VELHA - RS",
@@ -323,6 +326,33 @@ CITIES_API_PRATA = [
     "LUZIÂNIA - GO",
     "MAJOR GERCINO - SC",
     "MANHUAÇU - MG",
+    "MARA ROSA - GO",
+    "MARZAGAO - GO",
+    "MATOZINHOS - MG",
+    "MORRO REUTER - RS",
+    "NEPOMUCENO - MG",
+    "NOVA ANDRADINA - MS",
+    "NOVA IGUACU DE GOIAS - GO",
+    "NOVA TRENTO - SC",
+    "NOVO GAMA - GO",
+    "OSASCO - SP",
+    "OURO PRETO - MG",
+    "PALHOÇA - SC",
+    "PALMEIRAS DE GOIAS - GO",
+    "PARAUNA - GO",
+    "PEDRO LEOPOLDO - MG",
+    "PEQUERI - MG",
+    "PETROLINA DE GOIAS - GO",
+    "PICADA CAFÉ - RS",
+    "PIRACANJUBA - GO",
+    "PONTALINA - GO",
+    "PORANGATU - GO",
+    "PORTÃO - RS",
+    "PORTO BELO - SC",
+    "PRESIDENTE LUCENA - RS",
+    "RANCHO QUEIMADO - SC",
+    "RIO GRANDE DA SERRA - SP",
+    "RIO QUENTE - GO",
     "SANTA BÁRBARA - MG",
     "SANTA BARBARA D OESTE - SP",
     "SANTA MARIA DO HERVAL - RS",
@@ -346,41 +376,12 @@ CITIES_API_PRATA = [
     "TURVELANDIA - GO",
     "URUAÇU - GO",
     "VALPARAÍSO DE GOIAS - GO",
-    "ARACATUBA - SP",
     "VESPASIANO - MG",
     "VICENTINA - MS",
     "VISCONDE DO RIO BRANCO - MG",
-    "ARROIO DO SAL - RS",
-    "CONSELHEIRO LAFAIETE - MG",
-    "IMBÉ - RS",
-    "LIMA DUARTE - MG",
-    "MATIAS BARBOSA - MG",
-    "PARÁ DE MINAS - MG",
-    "SÃO JOSÉ DO CEDRO - SC",
-    "SÃO MIGUEL DO OESTE - SC",
-    "TEÓFILO OTONI - MG",
-    "TRAMANDAÍ - RS",
-    "ALFREDO VASCONCELOS - MG",
-    "ANCHIETA - SC",
-    "ANTÔNIO CARLOS - MG",
-    "BALNEÁRIO PINHAL - RS",
-    "BANDEIRANTE - SC",
-    "BARRACÃO - PR",
-    "BICAS - MG",
-    "BOM DESPACHO - MG",
-    "BOM SUCESSO - MG",
-    "CAMPO ERÊ - SC",
-    "CAPELA DE SANTANA - RS",
-    "CARAÁ - RS",
-    "CARANDAÍ - MG",
-    "CARMO DA MATA - MG",
-    "CARMÓPOLIS DE MINAS - MG",
-    "CIDREIRA - RS",
-    "CLÁUDIO - MG",
-    "BARÃO DE COCAIS - MG",
-]
+    ]
 
-CITIES_API_REDE_NEUTRA = [
+CITIES_API_VERO_REDE_NEUTRA = [
     "APARECIDA DE GOIANIA - GO",
     "BELO HORIZONTE - MG",
     "CONTAGEM - MG",
@@ -390,78 +391,9 @@ CITIES_API_REDE_NEUTRA = [
     "SETE LAGOAS - MG",
     "TRINDADE - GO",
     "UBÁ - MG",
-    "BRUMADINHO - MG",
-    "BURITI ALEGRE - GO",
-    "CACAPAVA - SP",
-    "CACHOEIRA ALTA - GO",
-    "RUBIACEA - SP",
-    "RUBINEIA - SP",
-    "SANTA BÁRBARA - MG",
-    "SANTA BARBARA D OESTE - SP",
-    "SANTA CRUZ DA CONCEICAO - SP",
-    "SANTA FE DO SUL - SP",
-    "SANTA HELENA DE GOIAS - GO",
-    "SANTA ISABEL - SP",
-    "SANTA MARIA DA SERRA - SP",
-    "SANTA MARIA DO HERVAL - RS",
-    "SANTA SALETE - SP",
-    "SANTA TEREZA DE GOIAS - GO",
-    "SANTANA DA PONTE PENSA - SP",
-    "SANTANA DE PARNAIBA - SP",
-    "SANTANA DO PARAÍSO - MG",
-    "SANTO AMARO DA IMPERATRIZ - SC",
-    "SANTO ANASTACIO - SP",
-    "SANTO AUGUSTO - RS",
-    "SANTO EXPEDITO - SP",
-    "SANTOS DUMONT - MG",
-    "SÃO BORJA - RS",
-    "SÃO JOÃO BATISTA - SC",
-    "SAO JOAO DA BOA VISTA - SP",
-    "SAO JOAO DA PARAUNA - GO",
-    "SÃO JOAQUIM DE BICAS - MG",
-    "SÃO JOSÉ - SC",
-    "LIMA DUARTE - MG",
-    "MATIAS BARBOSA - MG",
-    "PARÁ DE MINAS - MG",
-    "SÃO JOSÉ DO CEDRO - SC",
-    "SÃO MIGUEL DO OESTE - SC",
-    "TEÓFILO OTONI - MG",
-    "TRAMANDAÍ - RS",
-    "ALFREDO VASCONCELOS - MG",
-    "ANCHIETA - SC",
-    "ANTÔNIO CARLOS - MG",
-    "BALNEÁRIO PINHAL - RS",
-    "BANDEIRANTE - SC",
-    "BARRACÃO - PR",
-    "PARECI NOVO - RS",
-    "PERDÕES - MG",
-    "PORTO ALEGRE - RS",
-    "PRINCESA - SC",
-    "RENASCENÇA - PR",
-    "RESSAQUINHA - MG",
-    "RIBEIRÃO VERMELHO - MG",
-    "SANTA CRUZ DE MINAS - MG",
-    "SANTA LUZIA - MG",
-    "SANTO ÂNGELO - RS",
-    "SANTO ANTÔNIO DA PATRULHA - RS",
-    "BIRIGUI - SP",
-    "SANTO ANTÔNIO DO AMPARO - MG",
-    "SÃO BRÁS DO SUAÇUÍ - MG",
-    "SÃO DOMINGOS - SC",
-    "SÃO FRANCISCO DE PAULA - MG",
-    "SÃO JOSÉ DO SUL - RS",
-    "SÃO LOURENÇO DO OESTE - SC",
-    "TERRA DE AREIA - RS",
-    "TIRADENTES - MG",
-    "TORRES - RS",
-    "TRÊS CACHOEIRAS - RS",
-    "TRIUNFO - RS",
-    "VIAMÃO - RS",
-    "VITORINO - PR",
-    "XANGRI-LA - RS",
 ]
 
-CITIES_API_SAFIRA = [
+CITIES_API_VERO_SAFIRA = [
     "BARBACENA - MG",
     "BAURU - SP",
     "DIVINÓPOLIS - MG",
@@ -496,7 +428,7 @@ CITIES_API_SAFIRA = [
     "TRAMANDAÍ - RS",
 ]
 
-CITYES_API_GRAFENO_75 = [
+CITIES_API_VERO_GRAFENO_75 = [
     "AGUDOS - SP",
     "AMERICANA - SP",
     "CALDAS NOVAS - GO",
@@ -532,7 +464,7 @@ CITYES_API_GRAFENO_75 = [
     "TRES LAGOAS - MS",
 ]
 
-CITYES_API_GRAFENO_80 = [
+CITIES_API_VERO_GRAFENO_80 = [
     "ALFREDO MARCONDES - SP",
     "APARECIDA - SP",
     "ARARAS - SP",
@@ -631,7 +563,7 @@ CITYES_API_GRAFENO_80 = [
 
 # CIDADES DA OPERADORA GIGA+ - INTERNET
 
-CITIES_API_TERRITORIO_T1_a_T9 = [
+CITIES_API_GIGA_TERRITORIO_T1_a_T9 = [
     "CAMARGO - PR",
     "ENGENHEIRO BELTRÃO - PR",
     "JANDAIA DO SUL - PR",
@@ -685,7 +617,7 @@ CITIES_API_TERRITORIO_T1_a_T9 = [
     "IGUABA GRANDE - RJ",
     "MACAÉ - RJ",
     "RIO DAS OSTRAS - RJ",
-    "SÃO PEDRO DA ALDEIA - RJ",
+    "SÃO PEDRO DA ALDEIRA - RJ",
     "SAQUAREMA - RJ",
     "ALÉM PARAÍBA - RJ",
     "BARRA DO PIRAÍ - RJ",
@@ -781,7 +713,7 @@ CITIES_API_TERRITORIO_T1_a_T9 = [
     "UBERLÂNDIA - MG",
     "ALTINÓPOLIS - SP",
     "ARAMINA - SP",
-    "BRASÍLIA - DF",
+    "BRASILIA - DF",
     "FRANCA - SP",
     "GUARÁ - SP",
     "IGARAPAVA - SP",
@@ -797,7 +729,7 @@ CITIES_API_TERRITORIO_T1_a_T9 = [
 ]
 
 
-CITIES_API_TERRITORIO_T10_a_T14 = [
+CITIES_API_GIGA_TERRITORIO_T10_a_T14 = [
     "CARNAÍBA - PE",
     "CARPINA - PE",
     "CARUARU - PE",
@@ -859,7 +791,8 @@ CITIES_API_TERRITORIO_T10_a_T14 = [
     "JUCÁS - CE",
     "LAVRAS DA MANGABEIRA - CE",
     "MAURITI - CE",
-    "MISSÃO VELHA - CE",
+    "MISSÃO - CE",
+    "VELHA - CE",
     "MOMBAÇA - CE",
     "ORÓS - CE",
     "PARAMBU - CE",
@@ -915,7 +848,7 @@ CITIES_API_TERRITORIO_T10_a_T14 = [
     "UBAJARA - CE",
 ]
 
-CITIES_API_TERRITORIO_CIDADES_ESPECIAIS = [
+CITIES_API_GIGA_TERRITORIO_CIDADES_ESPECIAIS = [
     "SÃO JOÃO BATISTA DO GLÓRIA - MG",
     "ITAÚ DE MINAS - MG",
     "ALTOS - PI",
@@ -932,7 +865,7 @@ CITIES_API_TERRITORIO_CIDADES_ESPECIAIS = [
 # CITIS_API_DESKTOP_DIAMANTE = ["SÃO PAULO - SP"]
 # CITIS_API_DESKTOP_ASCENDENTE = ["SANTA BRANCA - SP"]
 
-DESKTOP_PADRAO = [
+CITIES_API_DESKTOP_PADRAO = [
     "AMPARO - SP",
     "CAMPINAS - SP",
     "HOLAMBRA - SP",
@@ -1028,9 +961,9 @@ DESKTOP_PADRAO = [
     "TREMEMBÉ - SP",
 ]
 
-DESKTOP_BARRETOS = ["BARRETOS - SP", "BEBEDOURO - SP", "OLÍMPIA - SP"]
+CITIES_API_DESKTOP_BARRETOS = ["BARRETOS - SP", "BEBEDOURO - SP", "OLÍMPIA - SP"]
 
-DESKTOP_TIO_SAM = [
+CITIES_API_DESKTOP_TIO_SAM = [
     "CAPIVARI - SP",
     "ELIAS FAUSTO - SP",
     "RAFARD - SP",
@@ -1073,7 +1006,7 @@ DESKTOP_TIO_SAM = [
 ]
 
 
-FASTERNET_PADRAO = [
+CITIES_API_DESK_FASTERNET_PADRAO = [
     "MONTE ALEGRE DO SUL - SP",
     "ANGATUBA - SP",
     "ARAÇOIABA DA SERRA - SP",
@@ -1084,7 +1017,7 @@ FASTERNET_PADRAO = [
     "RIBEIRÃO CORRENTE - SP",
 ]
 
-FASTERNET_TIO_SAM = [
+CITIES_API_DESK_FASTERNET_TIO_SAM = [
     "BOFETE - SP",
     "BOITUVA - SP",
     "CAMPINA DO MONTE ALEGRE - SP",
@@ -1112,7 +1045,7 @@ FASTERNET_TIO_SAM = [
 ]
 
 
-LPNET_PADRAO = [
+CITIES_API_DESK_LPNET_PADRAO = [
     "BOCAINA - SP",
     "ITAJU - SP",
     "SANTA ERNESTINA - SP",
@@ -1135,275 +1068,331 @@ LPNET_PADRAO = [
     "SÃO MANUEL - SP",
 ]
 
-LPNET_TIO_SAM = [
+CITIES_API_DESK_LPNET_TIO_SAM = [
     "ÁGUAS DE SANTA BÁRBARA - SP",
     "ARANDU - SP",
     "AVARÉ - SP",
     "CERQUEIRA CÉSAR - SP",
     "IARAS - SP",
-    "ITAI - SP",
+    "ITAÍ - SP",
     "ITATINGA - SP",
     "MANDURI - SP",
     "PARDINHO - SP",
 ]
 
-# CIDADES DA OPERADORA ALGAR - INTERNET
+# CIDADES DA OPERADORA BL_FIBRA - INTERNET
+CITIES_API_BL_FIBRA_PADRAO = ["BELO HORIZONTE - MG", "CONTAGEM - MG", "SABARÁ - MG", "SANTA LUZIA - MG"]
 
-CITIES_ALGAR_600MB = [
-    "AMERICO BRASILIENSE - SP",
-    "ANAPOLIS - GO",
-    "APARECIDA DE GOIANIA - GO",
-    "ARACAJU - SE",
-    "ARARAQUARA - SP",
-    "ARARAS - SP",
-    "BRUSQUE - SC",
-    "BARUERI - SP",
-    "CRICIUMA - SC",
-    "JARAGUA DO SUL - SC",
-    "LAGES - SC",
-    "PALHOCA - SC",
-    "SAO BENTO DO SUL - SC",
-    "CARIACICA - ES",
-    "CAUCAIA - CE",
-    "CRAVINHOS - SP",
-    "CUBATAO - SP",
-    "DIADEMA - SP",
-    "EUSEBIO - CE",
-    "FEIRA DE SANTANA - BA",
-    "GOIANIA - GO",
-    "GUARA - DF",
-    "GUARULHOS - SP",
-    "ITU - SP",
-    "JABOTICABAL - SP",
-    "LAURO DE FREITAS - BA",
-    "MARACANAU - CE",
-    "MATAO - SP",
-    "MOGI DAS CRUZES - SP",
-    "MOGI GUACU - SP",
-    "MOGI MIRIM - SP",
-    "OSASCO - SP",
-    "SALTO - SP",
-    "SALVADOR - BA",
-    "SANTA GERTRUDES - SP",
-    "SANTO ANDRE - SP",
-    "SAO BERNARDO DO CAMPO - SP",
-    "SAO CAETANO DO SUL - SP",
-    "SAO JOSE DO RIO PRETO - SP",
-    "SÃO PAULO - SP",
-    "SERRA - ES",
-    "VARZEA PAULISTA - SP",
-    "VILA VELHA - ES",
-    "VITORIA - ES",
+# CIDADES DA OPERADORA MASTER INTERNET
+
+CITIES_API_MASTER_PADRAO = [
+    "DIVINÓPOLIS - MG",
+    "NOVA SERRANA - MG",
+    "TAUBATÉ - SP",
+    "PINDAMONHANGABA - SP",
+    "LORENA - SP",
+    "SÃO JOSÉ DOS CAMPOS - SP",
+    "CAÇAPAVA - SP",
+    "JACAREÍ - SP",
+    "TREMEMBÉ - SP",
+    "ITAJUBÁ - MG",
+    "PIRANGUÇU - MG",
+    "PIRANGUINHO - MG",
+    "VARGINHA - MG",
+    "TRÊS CORAÇÕES - MG",
+    "POÇOS DE CALDAS - MG",
+    "ITAÚNA - MG",
+    "MATEUS LEME - MG",
+    "LAVRAS - MG",
+    "SETE LAGOAS - MG",
+    "PASSOS - MG",
+    "POUSO ALEGRE - MG",
+    "UNAÍ - MG",
+    "PARACATU - MG",
+    "MONTES CLAROS - MG",
+    "CAMPOS DO JORDÃO - SP"
 ]
-CITIES_ALGAR_800MB = [
-    "BRASÍLIA - DF",
-    "CEILANDIA - DF",
-    "SAMAMBAIA - DF",
-    "SANTA BARBARA D OESTE - SP",
-    "TAGUATINGA - DF",
+
+
+# CIDADES DA OPERADORA BLINK INTERNET
+
+CITIES_API_BLINK_PADRAO = [
+    "BELO HORIZONTE - MG",
+    "BETIM - MG",
+    "BRUMADINHO - MG",
+    "CONFINS - MG",
+    "CONTAGEM - MG",
+    "IGARAPÉ - MG",
+    "LAGOA SANTA - MG",
+    "MATOZINHOS - MG",
+    "NOVA LIMA - MG",
+    "PEDRO LEOPOLDO - MG",
+    "RIBEIRÃO DAS NEVES - MG",
+    "SANTA LUZIA - MG",
+    "SÃO JOAQUIM DE BICAS - MG",
+    "SÃO JOSÉ DA LAPA - MG",
+    "VESPASIANO - MG",
 ]
-CITIES_ALGAR_SPECIALCITIES = ["PASSOS - MG", "POUSO ALEGRE - MG", "VARGINIA - MG"]
-
-# CLUSTER BL_FIBRA
-
-BL_FIBRA = ["BELO HORIZONTE - MG", "CONTAGEM - MG", "SABARÁ - MG", "SANTA LUZIA - MG"]
 
 
+# CIDADES DA OPERADORA IMPLANTAR INTERNET
+
+CITIES_API_IMPLANTAR_PADRAO = [
+    "BELO HORIZONTE - MG",
+    "SABARÁ - MG", 
+    "CONTAGEM - MG"
+]
+
+
+
+#FUNCÃO PARA VERO 
+def get_api_url_vero(cidade):
+    clusters = []
+    if cidade in CITIES_API_VERO_OURO:
+        clusters.append("VERO OURO")
+    if cidade in CITIES_API_VERO_PADRAO:
+        clusters.append("VERO PADRÃO")
+    if cidade in CITIES_API_VERO_PRATA:
+        clusters.append("VERO PRATA")    
+    if cidade in CITIES_API_VERO_REDE_NEUTRA:
+        clusters.append("VERO REDE NEUTRA")
+    if cidade in CITIES_API_VERO_GRAFENO_80:
+        clusters.append("VERO GRAFENO_80")
+    if cidade in CITIES_API_VERO_GRAFENO_75:
+        clusters.append("VERO GRAFENO_75")
+    if cidade in CITIES_API_VERO_SAFIRA:
+        clusters.append("VERO SAFIRA")
+    return clusters
+
+#FUNÇÃO PARA DESKTOP
 def get_api_url_desktop(cidade):
     clusters = []
-    if cidade in DESKTOP_PADRAO:
+    if cidade in CITIES_API_DESKTOP_PADRAO:
         clusters.append("DESKTOP PADRÃO")
-    if cidade in DESKTOP_BARRETOS:
+    if cidade in CITIES_API_DESKTOP_BARRETOS:
         clusters.append("DESKTOP BARRETOS")
-    if cidade in DESKTOP_TIO_SAM:
+    if cidade in CITIES_API_DESKTOP_TIO_SAM:
         clusters.append("DESKTOP TIOSAM")
-    if cidade in FASTERNET_PADRAO:
+    if cidade in CITIES_API_DESK_FASTERNET_PADRAO:
         clusters.append("FASTERNET PADRÃO")
-    if cidade in FASTERNET_TIO_SAM:
+    if cidade in CITIES_API_DESK_FASTERNET_TIO_SAM:
         clusters.append("FASTERNET TIOSAM")
-    if cidade in LPNET_PADRAO:
+    if cidade in CITIES_API_DESK_LPNET_PADRAO:
         clusters.append("LPNET PADRÃO")
-    if cidade in LPNET_TIO_SAM:
+    if cidade in CITIES_API_DESK_LPNET_TIO_SAM:
         clusters.append("LPNET TIOSAM")
+    return clusters
 
+#FUNÇÃO PARA GIGA+
+def get_api_url_giga(cidade):
+    clusters = []
+    if cidade in CITIES_API_GIGA_TERRITORIO_T1_a_T9:
+        clusters.append("GIGA T1_A_T9")
+    if cidade in CITIES_API_GIGA_TERRITORIO_T10_a_T14:
+        clusters.append("GIGA T10_A_T14")
+    if cidade in CITIES_API_GIGA_TERRITORIO_CIDADES_ESPECIAIS:
+        clusters.append("GIGA T_CIDADES_ESPECIAIS")
+    return clusters
+
+#FUNÇÃO PARA BL FIBRA
+def get_api_url_blfibra(cidade):
+    clusters = []
+    if cidade in CITIES_API_BL_FIBRA_PADRAO:
+        clusters.append("BL FIBRA PADRAO")
+    return clusters
+
+#FUNÇÃO PARA MASTER
+def get_api_url_master(cidade):
+    clusters = []
+    if cidade in CITIES_API_MASTER_PADRAO:
+        clusters.append("MASTER PADRAO")
+    return clusters
+
+#FUNÇÃO PARA BLINK 
+def get_api_url_blink(cidade):
+    clusters = []
+    if cidade in CITIES_API_BLINK_PADRAO:
+        clusters.append("BLINK PADRAO")
+    return clusters
+
+#FUNCÃO PARA IMPLANTAR
+def get_api_url_implantar(cidade):
+    clusters = []
+    if cidade in CITIES_API_IMPLANTAR_PADRAO:
+        clusters.append("IMPLANTAR PADRAO")
     return clusters
 
 
-def get_api_url_giga(cidade):
 
-    urls = []
+#FUNÇÃO UPDATE_CALL_WORKFLOW_VERO
+def update_field_and_call_workflow_vero(cidade, entity_id):
+    clusters = get_api_url_vero(cidade)
 
-    if cidade in CITIES_API_TERRITORIO_T1_a_T9:
-        urls.append(f"{URL_VPS}/webhook/workflowt1_a_t9")
-    if cidade in CITIES_API_TERRITORIO_T10_a_T14:
-        urls.append(f"{URL_VPS}/webhook/workflowt10_t14")
-    if cidade in CITIES_API_TERRITORIO_TELEFONEFIXO_T5_a_T7:
-        urls.append(f"{URL_VPS}/webhook/workflow_TELEFONEFIXO_T5_a_T7")
-    if cidade in CITIES_API_TERRITORIO_ALTOS_PARNAIBA_TERESINA:
-        urls.append(f"{URL_VPS}/webhook/workflowt_ALTOS_PARNAIBA_TERESINA")
-    if cidade in CITIES_API_TERRITORIO_CIDADES_ESPECIAIS_1:
-        urls.append(f"{URL_VPS}/webhook/workflowt_CIDADES_ESPECIAIS_1")
-    if cidade in CITIES_API_TERRITORIO_CIDADES_ESPECIAIS_2:
-        urls.append(f"{URL_VPS}/webhook/workflowt_CIDADES_ESPECIAIS_2")
-    if cidade in CITIES_API_TERRITORIO_CIDADES_ESPECIAIS_3:
-        urls.append(f"{URL_VPS}/webhook/workflowt_CIDADES_ESPECIAIS_3")
-
-    return urls or None
-
-
-def get_api_url_vero(cidade):
-
-    urls = []
-
-    if cidade in CITIES_API_OURO:
-        urls.append(f"{URL_VPS}/webhook/workflowouro")
-    if cidade in CITYES_API_GRAFENO_75:
-        urls.append(f"{URL_VPS}/webhook/workflow_grafeno_75")
-    if cidade in CITYES_API_GRAFENO_80:
-        urls.append(f"{URL_VPS}/webhook/workflow_grafeno_80")
-    if cidade in CITIES_API_SAFIRA:
-        urls.append(f"{URL_VPS}/webhook/workflow_safira")
-    if cidade in CITIES_API_PADRAO:
-        urls.append(f"{URL_VPS}/webhook/workflowpadrao")
-    if cidade in CITIES_API_REDE_NEUTRA:
-        urls.append(f"{URL_VPS}/webhook/workflowredeneutra")
-    if cidade in CITIES_API_PRATA:
-        urls.append(f"{URL_VPS}/webhook/workflowprata")
-
-    return urls or None
-
-
-def get_api_url_algar(cidade):
-    if cidade in CITIES_ALGAR_600MB:
-        return f"{URL_VPS}/webhook/workflow_algar_600MB"
-    elif cidade in CITIES_ALGAR_800MB:
-        return f"{URL_VPS}/webhook/workflow_algar_800MB"
-    elif cidade in CITIES_ALGAR_SPECIALCITIES:
-        return f"{URL_VPS}/webhook/workflow_algar_specialcities"
-    else:
-        return f"{URL_VPS}/webhook/workflow_algar"
-
-
-def atualizar_campo_no_crm(dados):
-    pass
-
-
-def atualizar_campo_e_chamar_api_algar(cidade, entity_id):
-
-    atualizar_campo_no_crm(entity_id)
-
-    url_api = get_api_url_algar(cidade)
-    if url_api:
-        response = requests.post(
-            f"{url_api}?deal_id={entity_id}", json={"cidade": cidade}
+    if len(clusters) == 0:
+        requests.post(
+            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={"CIDADE NÃO MAPEADA"}"
         )
-        return response.json()
-    else:
-        return {"error": "Cidade não mapeada"}
-
-
-def atualizar_campo_e_chamar_api_desktop(cidade, entity_id):
-
-    atualizar_campo_no_crm(entity_id)
-
-    clusters = get_api_url_desktop(cidade)
+        return {"error": "Error"}
 
     clusters_to_string = ""
-
     for i in range(len(clusters)):
         clusters_to_string += (
             f"{clusters[i]}, " if i != len(clusters) - 1 else f"{clusters[i]}"
         )
-
-    res = requests.post(
+    requests.post(
         f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={clusters_to_string}"
     )
-
     res2 = requests.post(
         f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
     )
-
     print(res2.json())
-
     return {"clusters": clusters_to_string}
 
+#FUNÇÃO UPDATE_CALL_WORKFLOW_GIGA+
+def update_field_and_call_workflow_giga(cidade, entity_id):
+    clusters = get_api_url_giga(cidade)
 
-def atualizar_campo_e_chamar_api_giga(cidade, entity_id):
+    if len(clusters) == 0:
+        requests.post(
+            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={"CIDADE NÃO MAPEADA"}"
+        )
+        return {"error": "Error"}
 
-    atualizar_campo_no_crm(entity_id)
+    clusters_to_string = ""
+    for i in range(len(clusters)):
+        clusters_to_string += (
+            f"{clusters[i]}, " if i != len(clusters) - 1 else f"{clusters[i]}"
+        )
+    requests.post(
+        f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={clusters_to_string}"
+    )
+    res2 = requests.post(
+        f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
+    )
+    print(res2.json())
+    return {"clusters": clusters_to_string}
 
-    urls = get_api_url_giga(cidade)
+#FUNÇÃO UPDATE_CALL_WORKFLOW_DESKTOP
+def update_field_and_call_workflow_desktop(cidade, entity_id):
+    clusters = get_api_url_desktop(cidade)
 
-    if not urls:
-        return {"error": "Cidade não mapeada"}
+    if len(clusters) == 0:
+        requests.post(
+            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={"CIDADE NÃO MAPEADA"}"
+        )
+        return {"error": "Error"}
 
-    responses = []
-    for url in urls:
-        try:
+    
+    clusters_to_string = ""
+    for i in range(len(clusters)):
+        clusters_to_string += (
+            f"{clusters[i]}, " if i != len(clusters) - 1 else f"{clusters[i]}"
+        )
+    requests.post(
+        f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={clusters_to_string}"
+    )
+    res2 = requests.post(
+        f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
+    )
+    print(res2.json())
+    return {"clusters": clusters_to_string}
 
-            response = requests.post(
-                f"{url}?deal_id={entity_id}", json={"cidade": cidade}
-            )
-            responses.append(
-                {
-                    "url": url,
-                    "status_code": response.status_code,
-                    "response": response.json(),
-                }
-            )
-        except Exception as e:
-            responses.append({"url": url, "error": str(e)})
+#FUNÇÃO UPDATE_CALL_WORKFLOW_MASTER
+def update_field_and_call_workflow_master(cidade, entity_id):
+    clusters = get_api_url_master(cidade)
 
-    return responses
+    if len(clusters) == 0:
+        requests.post(
+            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={"CIDADE NÃO MAPEADA"}"
+        )
+        return {"error": "Error"}
 
+    clusters_to_string = ""
+    for i in range(len(clusters)):
+        clusters_to_string += (
+            f"{clusters[i]}, " if i != len(clusters) - 1 else f"{clusters[i]}"
+        )
+    requests.post(
+        f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={clusters_to_string}"
+    )
+    res2 = requests.post(
+        f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
+    )
+    print(res2.json())
+    return {"clusters": clusters_to_string}
 
-def atualizar_campo_e_chamar_api_vero(cidade, entity_id):
+#FUNÇÃO UPDATE_CALL_WORKFLOW_BL_FIBRA
+def update_field_and_call_workflow_blfibra(cidade, entity_id):
+    clusters = get_api_url_blfibra(cidade)
 
-    atualizar_campo_no_crm(entity_id)
+    if len(clusters) == 0:
+        requests.post(
+            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={"CIDADE NÃO MAPEADA"}"
+        )
+        return {"error": "Error"}
+    
+    clusters_to_string = ""
+    for i in range(len(clusters)):
+        clusters_to_string += (
+            f"{clusters[i]}, " if i != len(clusters) - 1 else f"{clusters[i]}"
+        )
+    requests.post(
+        f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={clusters_to_string}"
+    )
+    res2 = requests.post(
+        f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
+    )
+    print(res2.json())
+    return {"clusters": clusters_to_string}
 
-    urls = get_api_url_vero(cidade)
+#FUNÇÃO UPDATE_CALL_WORKFLOW_BLINK
+def update_field_and_call_workflow_blink(cidade, entity_id):
+    clusters = get_api_url_blink(cidade)
 
-    if not urls:
-        return {"error": "Cidade não mapeada"}
+    if len(clusters) == 0:
+        requests.post(
+            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={"CIDADE NÃO MAPEADA"}"
+        )
+        return {"error": "Error"}
+    
 
-    responses = []
-    for url in urls:
-        try:
+    clusters_to_string = ""
+    for i in range(len(clusters)):
+        clusters_to_string += (
+            f"{clusters[i]}, " if i != len(clusters) - 1 else f"{clusters[i]}"
+        )
+    requests.post(
+        f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={clusters_to_string}"
+    )
+    res2 = requests.post(
+        f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
+    )
+    print(res2.json())
+    return {"clusters": clusters_to_string}
 
-            response = requests.post(
-                f"{url}?deal_id={entity_id}", json={"cidade": cidade}
-            )
-            responses.append(
-                {
-                    "url": url,
-                    "status_code": response.status_code,
-                    "response": response.json(),
-                }
-            )
-        except Exception as e:
-            responses.append({"url": url, "error": str(e)})
+#FUNÇÃO UPDATE_CALL_WORKFLOW_IMPLANTAR
+def update_field_and_call_workflow_implantar(cidade, entity_id):
+    clusters = get_api_url_implantar(cidade)
 
-    return responses
-
-
-def atualizar_campo_e_chamar_api_bl(cidade, entity_id):
-
-    atualizar_campo_no_crm(entity_id)
-
-    url = f"{URL_VPS}/webhook/workflow_bl-fibra"
-
-    if cidade not in BL_FIBRA:
-        return {"error": "Cidade não mapeada"}
-
-    try:
-
-        response = requests.post(f"{url}?deal_id={entity_id}", json={"cidade": cidade})
-        response = response.json()
-    except Exception as e:
-        response = {"url": url, "error": str(e)}
-
-    return response
-
+    if len(clusters) == 0:
+        requests.post(
+            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={"CIDADE NÃO MAPEADA"}"
+        )
+        return {"error": "Error"}
+        
+    clusters_to_string = ""
+    for i in range(len(clusters)):
+        clusters_to_string += (
+            f"{clusters[i]}, " if i != len(clusters) - 1 else f"{clusters[i]}"
+        )
+    requests.post(
+        f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={clusters_to_string}"
+    )
+    res2 = requests.post(
+        f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
+    )
+    print(res2.json())
+    return {"clusters": clusters_to_string}
 
 def make_request_with_retries(method, url, **kwargs):
     max_retries = 5
@@ -1422,7 +1411,6 @@ def make_request_with_retries(method, url, **kwargs):
         time.sleep(2)
     return None
 
-
 def handle_request_errors(response, error_message, details=None):
     if response is None or response.status_code >= 400:
         return (
@@ -1436,7 +1424,6 @@ def handle_request_errors(response, error_message, details=None):
             ),
             400,
         )
-
 
 @app.route("/update-plan-desktop/<string:entity_id>", methods=["POST"])
 def update_plan_desktop(entity_id):
@@ -1466,7 +1453,7 @@ def update_plan_desktop(entity_id):
             json={"id": entity_id, "fields": {"UF_CRM_1733493949": cidade_completa}},
         )
 
-        api_response = atualizar_campo_e_chamar_api_desktop(cidade_completa, entity_id)
+        api_response = update_field_and_call_workflow_desktop(cidade_completa, entity_id)
         return (
             jsonify(
                 {
@@ -1481,82 +1468,6 @@ def update_plan_desktop(entity_id):
     except Exception as e:
         log_erro("Erro interno", e)
         return jsonify({"error": "Erro interno no servidor", "details": str(e)}), 500
-
-
-@app.route("/update-plan-algar/<string:entity_id>", methods=["POST"])
-def update_plan_algar(entity_id):
-    try:
-        print("ola")
-        get_deal_url = f"{BITRIX_WEBHOOK_URL}/crm.deal.get"
-        print("tudo bem")
-
-        get_deal_response = make_request_with_retries(
-            "GET", get_deal_url, params={"id": entity_id}
-        )
-        print("bom dia")
-
-        handle_request_errors(
-            get_deal_response, "Falha ao buscar os dados da negociação"
-        )
-        print("e aí")
-
-        get_deal_data = get_deal_response.json()
-        print("como vai")
-
-        cidade = get_deal_data["result"].get("UF_CRM_1731588487")
-        print("como estas")
-
-        uf = get_deal_data["result"].get("UF_CRM_1731589190")
-
-        print("Boa tarder")
-
-        if not cidade or not uf:
-            return jsonify({"error": "Campos Cidade e UF estão vazios"}), 400
-
-        print("vamos")
-
-        cidade_completa = f"{cidade.strip().upper()} - {uf.strip().upper()}"
-
-        print("sim")
-
-        update_url = f"{BITRIX_WEBHOOK_URL}/crm.deal.update"
-
-        print("print")
-
-        update_response = make_request_with_retries(
-            "POST",
-            update_url,
-            json={"id": entity_id, "fields": {"UF_CRM_1733493949": cidade_completa}},
-        )
-
-        print("calma")
-
-        api_response = atualizar_campo_e_chamar_api_algar(cidade_completa, entity_id)
-
-        print("quase")
-        return (
-            jsonify(
-                {
-                    "message": "Campo atualizado com sucesso!",
-                    "cidade_completa": cidade_completa,
-                    "api_response": api_response,
-                }
-            ),
-            200,
-        )
-
-    except Exception as e:
-        log_erro("Erro interno", e)
-        return (
-            jsonify(
-                {
-                    "atualizado_em": "14/02",
-                    "error": "Erro interno no servidor",
-                    "details": str(e),
-                }
-            ),
-            500,
-        )
 
 
 @app.route("/update-plan-giga/<string:entity_id>", methods=["POST"])
@@ -1587,7 +1498,7 @@ def update_plan_giga(entity_id):
             json={"id": entity_id, "fields": {"UF_CRM_1733493949": cidade_completa}},
         )
 
-        api_response = atualizar_campo_e_chamar_api_giga(cidade_completa, entity_id)
+        api_response = update_field_and_call_workflow_giga(cidade_completa, entity_id)
         return (
             jsonify(
                 {
@@ -1632,7 +1543,7 @@ def update_plan_vero(entity_id):
             json={"id": entity_id, "fields": {"UF_CRM_1733493949": cidade_completa}},
         )
 
-        api_response = atualizar_campo_e_chamar_api_vero(cidade_completa, entity_id)
+        api_response = update_field_and_call_workflow_vero(cidade_completa, entity_id)
         return (
             jsonify(
                 {
@@ -1648,9 +1559,8 @@ def update_plan_vero(entity_id):
         log_erro("Erro interno", e)
         return jsonify({"error": "Erro interno no servidor", "details": str(e)}), 500
 
-
-@app.route("/update-plan-bl/<string:entity_id>", methods=["POST"])
-def update_plan_bl(entity_id):
+@app.route("/update-plan-blfibra/<string:entity_id>", methods=["POST"])
+def update_plan_blfibra(entity_id):
     try:
         get_deal_url = f"{BITRIX_WEBHOOK_URL}/crm.deal.get"
         get_deal_response = make_request_with_retries(
@@ -1677,7 +1587,141 @@ def update_plan_bl(entity_id):
             json={"id": entity_id, "fields": {"UF_CRM_1733493949": cidade_completa}},
         )
 
-        api_response = atualizar_campo_e_chamar_api_bl(cidade_completa, entity_id)
+        api_response = update_field_and_call_workflow_blfibra(cidade_completa, entity_id)
+        return (
+            jsonify(
+                {
+                    "message": "Campo atualizado com sucesso!",
+                    "cidade_completa": cidade_completa,
+                    "api_response": api_response,
+                }
+            ),
+            200,
+        )
+
+    except Exception as e:
+        log_erro("Erro interno", e)
+        return jsonify({"error": "Erro interno no servidor", "details": str(e)}), 500
+
+@app.route("/update-plan-master/<string:entity_id>", methods=["POST"])
+def update_plan_master(entity_id):
+    try:
+        get_deal_url = f"{BITRIX_WEBHOOK_URL}/crm.deal.get"
+        get_deal_response = make_request_with_retries(
+            "GET", get_deal_url, params={"id": entity_id}
+        )
+        handle_request_errors(
+            get_deal_response, "Falha ao buscar os dados da negociação"
+        )
+        get_deal_data = get_deal_response.json()
+
+        cidade = get_deal_data["result"].get("UF_CRM_1731588487")
+        uf = get_deal_data["result"].get("UF_CRM_1731589190")
+
+        if not cidade or not uf:
+            return jsonify({"error": "Campos Cidade e UF estão vazios"}), 400
+
+        cidade_completa = f"{cidade.strip().upper()} - {uf.strip().upper()}"
+
+        update_url = f"{BITRIX_WEBHOOK_URL}/crm.deal.update"
+
+        update_response = make_request_with_retries(
+            "POST",
+            update_url,
+            json={"id": entity_id, "fields": {"UF_CRM_1733493949": cidade_completa}},
+        )
+
+        api_response = update_field_and_call_workflow_master(cidade_completa, entity_id)
+        return (
+            jsonify(
+                {
+                    "message": "Campo atualizado com sucesso!",
+                    "cidade_completa": cidade_completa,
+                    "api_response": api_response,
+                }
+            ),
+            200,
+        )
+
+    except Exception as e:
+        log_erro("Erro interno", e)
+        return jsonify({"error": "Erro interno no servidor", "details": str(e)}), 500
+
+
+@app.route("/update-plan-blink/<string:entity_id>", methods=["POST"])
+def update_plan_blink(entity_id):
+    try:
+        get_deal_url = f"{BITRIX_WEBHOOK_URL}/crm.deal.get"
+        get_deal_response = make_request_with_retries(
+            "GET", get_deal_url, params={"id": entity_id}
+        )
+        handle_request_errors(
+            get_deal_response, "Falha ao buscar os dados da negociação"
+        )
+        get_deal_data = get_deal_response.json()
+
+        cidade = get_deal_data["result"].get("UF_CRM_1731588487")
+        uf = get_deal_data["result"].get("UF_CRM_1731589190")
+
+        if not cidade or not uf:
+            return jsonify({"error": "Campos Cidade e UF estão vazios"}), 400
+
+        cidade_completa = f"{cidade.strip().upper()} - {uf.strip().upper()}"
+
+        update_url = f"{BITRIX_WEBHOOK_URL}/crm.deal.update"
+
+        update_response = make_request_with_retries(
+            "POST",
+            update_url,
+            json={"id": entity_id, "fields": {"UF_CRM_1733493949": cidade_completa}},
+        )
+
+        api_response = update_field_and_call_workflow_blink(cidade_completa, entity_id)
+        return (
+            jsonify(
+                {
+                    "message": "Campo atualizado com sucesso!",
+                    "cidade_completa": cidade_completa,
+                    "api_response": api_response,
+                }
+            ),
+            200,
+        )
+
+    except Exception as e:
+        log_erro("Erro interno", e)
+        return jsonify({"error": "Erro interno no servidor", "details": str(e)}), 500
+
+
+@app.route("/update-plan-implantar/<string:entity_id>", methods=["POST"])
+def update_plan_implantar(entity_id):
+    try:
+        get_deal_url = f"{BITRIX_WEBHOOK_URL}/crm.deal.get"
+        get_deal_response = make_request_with_retries(
+            "GET", get_deal_url, params={"id": entity_id}
+        )
+        handle_request_errors(
+            get_deal_response, "Falha ao buscar os dados da negociação"
+        )
+        get_deal_data = get_deal_response.json()
+
+        cidade = get_deal_data["result"].get("UF_CRM_1731588487")
+        uf = get_deal_data["result"].get("UF_CRM_1731589190")
+
+        if not cidade or not uf:
+            return jsonify({"error": "Campos Cidade e UF estão vazios"}), 400
+
+        cidade_completa = f"{cidade.strip().upper()} - {uf.strip().upper()}"
+
+        update_url = f"{BITRIX_WEBHOOK_URL}/crm.deal.update"
+
+        update_response = make_request_with_retries(
+            "POST",
+            update_url,
+            json={"id": entity_id, "fields": {"UF_CRM_1733493949": cidade_completa}},
+        )
+
+        api_response = update_field_and_call_workflow_implantar(cidade_completa, entity_id)
         return (
             jsonify(
                 {
@@ -1695,4 +1739,4 @@ def update_plan_bl(entity_id):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=1473)
+    app.run(host="0.0.0.0", debug=True)
