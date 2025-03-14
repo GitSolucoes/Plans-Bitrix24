@@ -1230,7 +1230,7 @@ def update_field_and_call_workflow_vero(cidade, entity_id):
 
     if len(clusters) == 0:
         requests.post(
-            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={"CIDADE NÃO MAPEADA"}")
+            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={'CIDADE NÃO MAPEADA'}")
         return {"error": "Error"}
 
     clusters_to_string = ""
@@ -1253,7 +1253,7 @@ def update_field_and_call_workflow_giga(cidade, entity_id):
 
     if len(clusters) == 0:
         requests.post(
-            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={"CIDADE NÃO MAPEADA"}"
+            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={'CIDADE NÃO MAPEADA'}"
         )
         return {"error": "Error"}
 
@@ -1277,7 +1277,7 @@ def update_field_and_call_workflow_desktop(cidade, entity_id):
 
     if len(clusters) == 0:
         requests.post(
-            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={"CIDADE NÃO MAPEADA"}"
+            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={'CIDADE NÃO MAPEADA'}"
         )
         return {"error": "Error"}
 
@@ -1302,7 +1302,7 @@ def update_field_and_call_workflow_master(cidade, entity_id):
 
     if len(clusters) == 0:
         requests.post(
-            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={"CIDADE NÃO MAPEADA"}"
+            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={'CIDADE NÃO MAPEADA'}"
         )
         return {"error": "Error"}
 
@@ -1326,7 +1326,7 @@ def update_field_and_call_workflow_blfibra(cidade, entity_id):
 
     if len(clusters) == 0:
         requests.post(
-            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={"CIDADE NÃO MAPEADA"}"
+            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={'CIDADE NÃO MAPEADA'}"
         )
         return {"error": "Error"}
     
@@ -1350,7 +1350,7 @@ def update_field_and_call_workflow_blink(cidade, entity_id):
 
     if len(clusters) == 0:
         requests.post(
-            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={"CIDADE NÃO MAPEADA"}"
+            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={'CIDADE NÃO MAPEADA'}"
         )
         return {"error": "Error"}
     
@@ -1375,7 +1375,7 @@ def update_field_and_call_workflow_implantar(cidade, entity_id):
 
     if len(clusters) == 0:
         requests.post(
-            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={"CIDADE NÃO MAPEADA"}"
+            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={'CIDADE NÃO MAPEADA'}"
         )
         return {"error": "Error"}
         
@@ -1735,6 +1735,7 @@ def update_plan_implantar(entity_id):
     except Exception as e:
         log_erro("Erro interno", e)
         return jsonify({"error": "Erro interno no servidor", "details": str(e)}), 500
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=1473)
