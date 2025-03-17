@@ -714,6 +714,7 @@ CITIES_API_GIGA_TERRITORIO_T1_a_T9 = [
     "ALTINÓPOLIS - SP",
     "ARAMINA - SP",
     "BRASILIA - DF",
+    "BRASÍLIA - DF",
     "FRANCA - SP",
     "GUARÁ - SP",
     "IGARAPAVA - SP",
