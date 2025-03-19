@@ -70,7 +70,7 @@ CITIES_API_VERO_OURO = [
     "URUGUAIANA - RS",
     "VENÂNCIO AIRES - RS",
     "VIÇOSA - MG",
-    "XANXERÊ - SC"
+    "XANXERÊ - SC",
 ]
 
 CITIES_API_VERO_PADRAO = [
@@ -160,7 +160,7 @@ CITIES_API_VERO_PADRAO = [
     "TRIUNFO - RS",
     "VIAMÃO - RS",
     "VITORINO - PR",
-    "XANGRI-LA - RS"
+    "XANGRI-LA - RS",
 ]
 
 CITIES_API_VERO_PRATA = [
@@ -379,7 +379,7 @@ CITIES_API_VERO_PRATA = [
     "VESPASIANO - MG",
     "VICENTINA - MS",
     "VISCONDE DO RIO BRANCO - MG",
-    ]
+]
 
 CITIES_API_VERO_REDE_NEUTRA = [
     "APARECIDA DE GOIANIA - GO",
@@ -961,26 +961,34 @@ CITIES_API_DESKTOP_PADRAO = [
     "SÃO JOSÉ DOS CAMPOS - SP",
     "TAUBATÉ - SP",
     "TREMEMBÉ - SP",
-]
-
-CITIES_API_DESKTOP_BARRETOS = ["BARRETOS - SP", "BEBEDOURO - SP", "OLÍMPIA - SP"]
-
-CITIES_API_DESKTOP_TIO_SAM = [
     "CAPIVARI - SP",
     "ELIAS FAUSTO - SP",
     "RAFARD - SP",
     "VOTORANTIM - SP",
     "AGUAÍ - SP",
     "AMERICANA - SP",
+    "CASA BRANCA - SP",
+    "CORDEIRÓPOLIS - SP",
+    "ENGENHEIRO COELHO - SP",
+    "IRACEMÁPOLIS - SP",
+    "ITAJU - SP",
+    "SANTA ERNESTINA - SP",
+    "TRABIJU - SP",
+    "AREIÓPOLIS - SP",
+    "ÓLEO - SP",
+    "PARANAPANEMA - SP",
+    "PRATÂNIA - SP",
+    "SÃO MANUEL - SP",
+]
+
+CITIES_API_DESKTOP_BARRETOS = ["BARRETOS - SP", "BEBEDOURO - SP", "OLÍMPIA - SP"]
+
+CITIES_API_DESKTOP_TIO_SAM = [
     "ARARAS - SP",
     "ARTUR NOGUEIRA - SP",
-    "CASA BRANCA - SP",
     "CONCHAL - SP",
-    "CORDEIRÓPOLIS - SP",
     "COSMÓPOLIS - SP",
-    "ENGENHEIRO COELHO - SP",
     "ESTIVA GERBI - SP",
-    "IRACEMÁPOLIS - SP",
     "LEME - SP",
     "LIMEIRA - SP",
     "MOGI GUAÇU - SP",
@@ -998,7 +1006,16 @@ CITIES_API_DESKTOP_TIO_SAM = [
     "BADY BASSITT - SP",
     "MIRASSOL - SP",
     "SÃO JOSÉ DO RIO PRETO - SP",
+    "ÁGUAS DE SANTA BÁRBARA - SP",
+    "ARANDU - SP",
+    "AVARÉ - SP",
+    "CERQUEIRA CÉSAR - SP",
+    "IARAS - SP",
+    "ITAÍ - SP",
+    "ITATINGA - SP",
     "LINS - SP",
+    "MANDURI - SP",
+    "PARDINHO - SP",
     "INDAIATUBA - SP",
     "ITUPEVA - SP",
     "JUNDIAÍ - SP",
@@ -1011,6 +1028,25 @@ CITIES_API_DESK_FASTERNET_PADRAO = [
     "MONTE ALEGRE DO SUL - SP",
     "ANGATUBA - SP",
     "ARAÇOIABA DA SERRA - SP",
+    "BOITUVA - SP",
+    "CAMPINA DO MONTE ALEGRE - SP",
+    "CAPELA DO ALTO - SP",
+    "CERQUILHO - SP",
+    "CESÁRIO LANGE - SP",
+    "CONCHAS - SP",
+    "IPERÓ - SP",
+    "JUMIRIM - SP",
+    "LARANJAL PAULISTA - SP",
+    "PEREIRAS - SP",
+    "PILAR DO SUL - SP",
+    "PORANGABA - SP",
+    "QUADRA - SP",
+    "RIO DAS PEDRAS - SP",
+    "SALTINHO - SP",
+    "SALTO DE PIRAPORA - SP",
+    "SARAPUÍ - SP",
+    "TATUÍ - SP",
+    "TIETÊ - SP",
     "RIO CLARO - SP",
     "CRISTAIS PAULISTA - SP",
     "ITIRAPUÃ - SP",
@@ -1020,40 +1056,16 @@ CITIES_API_DESK_FASTERNET_PADRAO = [
 
 CITIES_API_DESK_FASTERNET_TIO_SAM = [
     "BOFETE - SP",
-    "BOITUVA - SP",
-    "CAMPINA DO MONTE ALEGRE - SP",
-    "CAPELA DO ALTO - SP",
-    "CERQUILHO - SP",
-    "CESÁRIO LANGE - SP",
-    "CONCHAS - SP",
-    "IPERÓ - SP",
     "ITAPETININGA - SP",
     "ITÚ - SP",
-    "JUMIRIM - SP",
-    "LARANJAL PAULISTA - SP",
-    "PEREIRAS - SP",
-    "PILAR DO SUL - SP",
-    "PORANGABA - SP",
-    "QUADRA - SP",
-    "RIO DAS PEDRAS - SP",
-    "SALTINHO - SP",
     "SALTO - SP",
-    "SALTO DE PIRAPORA - SP",
-    "SARAPUÍ - SP",
-    "TATUÍ - SP",
-    "TIETÊ - SP",
     "FRANCA - SP",
 ]
 
 
 CITIES_API_DESK_LPNET_PADRAO = [
     "BOCAINA - SP",
-    "ITAJU - SP",
-    "SANTA ERNESTINA - SP",
-    "TRABIJU - SP",
-    "CÂNDIDO RODRIGUES - SP",
     "AGUDOS - SP",
-    "AREIÓPOLIS - SP",
     "BARRA BONITA - SP",
     "BOREBI - SP",
     "DOIS CÓRREGOS - SP",
@@ -1062,27 +1074,18 @@ CITIES_API_DESK_LPNET_PADRAO = [
     "JAÚ - SP",
     "MACATUBA - SP",
     "MINEIROS DO TIETÊ - SP",
-    "ÓLEO - SP",
-    "PARANAPANEMA - SP",
     "PEDERNEIRAS - SP",
-    "PRATÂNIA - SP",
-    "SÃO MANUEL - SP",
 ]
 
-CITIES_API_DESK_LPNET_TIO_SAM = [
-    "ÁGUAS DE SANTA BÁRBARA - SP",
-    "ARANDU - SP",
-    "AVARÉ - SP",
-    "CERQUEIRA CÉSAR - SP",
-    "IARAS - SP",
-    "ITAÍ - SP",
-    "ITATINGA - SP",
-    "MANDURI - SP",
-    "PARDINHO - SP",
-]
+CITIES_API_DESK_LPNET_TIO_SAM = ["NADA"]
 
 # CIDADES DA OPERADORA BL_FIBRA - INTERNET
-CITIES_API_BL_FIBRA_PADRAO = ["BELO HORIZONTE - MG", "CONTAGEM - MG", "SABARÁ - MG", "SANTA LUZIA - MG"]
+CITIES_API_BL_FIBRA_PADRAO = [
+    "BELO HORIZONTE - MG",
+    "CONTAGEM - MG",
+    "SABARÁ - MG",
+    "SANTA LUZIA - MG",
+]
 
 # CIDADES DA OPERADORA MASTER INTERNET
 
@@ -1111,7 +1114,7 @@ CITIES_API_MASTER_PADRAO = [
     "UNAÍ - MG",
     "PARACATU - MG",
     "MONTES CLAROS - MG",
-    "CAMPOS DO JORDÃO - SP"
+    "CAMPOS DO JORDÃO - SP",
 ]
 
 
@@ -1138,15 +1141,10 @@ CITIES_API_BLINK_PADRAO = [
 
 # CIDADES DA OPERADORA IMPLANTAR INTERNET
 
-CITIES_API_IMPLANTAR_PADRAO = [
-    "BELO HORIZONTE - MG",
-    "SABARÁ - MG", 
-    "CONTAGEM - MG"
-]
+CITIES_API_IMPLANTAR_PADRAO = ["BELO HORIZONTE - MG", "SABARÁ - MG", "CONTAGEM - MG"]
 
 
-
-#FUNCÃO PARA VERO 
+# FUNCÃO PARA VERO
 def get_api_url_vero(cidade):
     clusters = []
     if cidade in CITIES_API_VERO_OURO:
@@ -1154,7 +1152,7 @@ def get_api_url_vero(cidade):
     if cidade in CITIES_API_VERO_PADRAO:
         clusters.append("VERO PADRÃO")
     if cidade in CITIES_API_VERO_PRATA:
-        clusters.append("VERO PRATA")    
+        clusters.append("VERO PRATA")
     if cidade in CITIES_API_VERO_REDE_NEUTRA:
         clusters.append("VERO REDE NEUTRA")
     if cidade in CITIES_API_VERO_GRAFENO_80:
@@ -1165,7 +1163,8 @@ def get_api_url_vero(cidade):
         clusters.append("VERO SAFIRA")
     return clusters
 
-#FUNÇÃO PARA DESKTOP
+
+# FUNÇÃO PARA DESKTOP
 def get_api_url_desktop(cidade):
     clusters = []
     if cidade in CITIES_API_DESKTOP_PADRAO:
@@ -1184,7 +1183,8 @@ def get_api_url_desktop(cidade):
         clusters.append("LPNET TIOSAM")
     return clusters
 
-#FUNÇÃO PARA GIGA+
+
+# FUNÇÃO PARA GIGA+
 def get_api_url_giga(cidade):
     clusters = []
     if cidade in CITIES_API_GIGA_TERRITORIO_T1_a_T9:
@@ -1195,28 +1195,32 @@ def get_api_url_giga(cidade):
         clusters.append("GIGA T_CIDADES_ESPECIAIS")
     return clusters
 
-#FUNÇÃO PARA BL FIBRA
+
+# FUNÇÃO PARA BL FIBRA
 def get_api_url_blfibra(cidade):
     clusters = []
     if cidade in CITIES_API_BL_FIBRA_PADRAO:
         clusters.append("BL FIBRA PADRAO")
     return clusters
 
-#FUNÇÃO PARA MASTER
+
+# FUNÇÃO PARA MASTER
 def get_api_url_master(cidade):
     clusters = []
     if cidade in CITIES_API_MASTER_PADRAO:
         clusters.append("MASTER PADRAO")
     return clusters
 
-#FUNÇÃO PARA BLINK 
+
+# FUNÇÃO PARA BLINK
 def get_api_url_blink(cidade):
     clusters = []
     if cidade in CITIES_API_BLINK_PADRAO:
         clusters.append("BLINK PADRAO")
     return clusters
 
-#FUNCÃO PARA IMPLANTAR
+
+# FUNCÃO PARA IMPLANTAR
 def get_api_url_implantar(cidade):
     clusters = []
     if cidade in CITIES_API_IMPLANTAR_PADRAO:
@@ -1224,14 +1228,14 @@ def get_api_url_implantar(cidade):
     return clusters
 
 
-
-#FUNÇÃO UPDATE_CALL_WORKFLOW_VERO
+# FUNÇÃO UPDATE_CALL_WORKFLOW_VERO
 def update_field_and_call_workflow_vero(cidade, entity_id):
     clusters = get_api_url_vero(cidade)
 
     if len(clusters) == 0:
         requests.post(
-            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={'CIDADE NÃO MAPEADA'}")
+            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={'CIDADE NÃO MAPEADA'}"
+        )
         return {"error": "Error"}
 
     clusters_to_string = ""
@@ -1248,7 +1252,8 @@ def update_field_and_call_workflow_vero(cidade, entity_id):
     print(res2.json())
     return {"clusters": clusters_to_string}
 
-#FUNÇÃO UPDATE_CALL_WORKFLOW_GIGA+
+
+# FUNÇÃO UPDATE_CALL_WORKFLOW_GIGA+
 def update_field_and_call_workflow_giga(cidade, entity_id):
     clusters = get_api_url_giga(cidade)
 
@@ -1272,7 +1277,8 @@ def update_field_and_call_workflow_giga(cidade, entity_id):
     print(res2.json())
     return {"clusters": clusters_to_string}
 
-#FUNÇÃO UPDATE_CALL_WORKFLOW_DESKTOP
+
+# FUNÇÃO UPDATE_CALL_WORKFLOW_DESKTOP
 def update_field_and_call_workflow_desktop(cidade, entity_id):
     clusters = get_api_url_desktop(cidade)
 
@@ -1282,7 +1288,6 @@ def update_field_and_call_workflow_desktop(cidade, entity_id):
         )
         return {"error": "Error"}
 
-    
     clusters_to_string = ""
     for i in range(len(clusters)):
         clusters_to_string += (
@@ -1297,7 +1302,8 @@ def update_field_and_call_workflow_desktop(cidade, entity_id):
     print(res2.json())
     return {"clusters": clusters_to_string}
 
-#FUNÇÃO UPDATE_CALL_WORKFLOW_MASTER
+
+# FUNÇÃO UPDATE_CALL_WORKFLOW_MASTER
 def update_field_and_call_workflow_master(cidade, entity_id):
     clusters = get_api_url_master(cidade)
 
@@ -1321,7 +1327,8 @@ def update_field_and_call_workflow_master(cidade, entity_id):
     print(res2.json())
     return {"clusters": clusters_to_string}
 
-#FUNÇÃO UPDATE_CALL_WORKFLOW_BL_FIBRA
+
+# FUNÇÃO UPDATE_CALL_WORKFLOW_BL_FIBRA
 def update_field_and_call_workflow_blfibra(cidade, entity_id):
     clusters = get_api_url_blfibra(cidade)
 
@@ -1330,7 +1337,7 @@ def update_field_and_call_workflow_blfibra(cidade, entity_id):
             f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={'CIDADE NÃO MAPEADA'}"
         )
         return {"error": "Error"}
-    
+
     clusters_to_string = ""
     for i in range(len(clusters)):
         clusters_to_string += (
@@ -1345,7 +1352,8 @@ def update_field_and_call_workflow_blfibra(cidade, entity_id):
     print(res2.json())
     return {"clusters": clusters_to_string}
 
-#FUNÇÃO UPDATE_CALL_WORKFLOW_BLINK
+
+# FUNÇÃO UPDATE_CALL_WORKFLOW_BLINK
 def update_field_and_call_workflow_blink(cidade, entity_id):
     clusters = get_api_url_blink(cidade)
 
@@ -1354,7 +1362,6 @@ def update_field_and_call_workflow_blink(cidade, entity_id):
             f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={'CIDADE NÃO MAPEADA'}"
         )
         return {"error": "Error"}
-    
 
     clusters_to_string = ""
     for i in range(len(clusters)):
@@ -1370,7 +1377,8 @@ def update_field_and_call_workflow_blink(cidade, entity_id):
     print(res2.json())
     return {"clusters": clusters_to_string}
 
-#FUNÇÃO UPDATE_CALL_WORKFLOW_IMPLANTAR
+
+# FUNÇÃO UPDATE_CALL_WORKFLOW_IMPLANTAR
 def update_field_and_call_workflow_implantar(cidade, entity_id):
     clusters = get_api_url_implantar(cidade)
 
@@ -1379,7 +1387,7 @@ def update_field_and_call_workflow_implantar(cidade, entity_id):
             f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={'CIDADE NÃO MAPEADA'}"
         )
         return {"error": "Error"}
-        
+
     clusters_to_string = ""
     for i in range(len(clusters)):
         clusters_to_string += (
@@ -1393,6 +1401,7 @@ def update_field_and_call_workflow_implantar(cidade, entity_id):
     )
     print(res2.json())
     return {"clusters": clusters_to_string}
+
 
 def make_request_with_retries(method, url, **kwargs):
     max_retries = 5
@@ -1411,6 +1420,7 @@ def make_request_with_retries(method, url, **kwargs):
         time.sleep(2)
     return None
 
+
 def handle_request_errors(response, error_message, details=None):
     if response is None or response.status_code >= 400:
         return (
@@ -1424,6 +1434,7 @@ def handle_request_errors(response, error_message, details=None):
             ),
             400,
         )
+
 
 @app.route("/update-plan-desktop/<string:entity_id>", methods=["POST"])
 def update_plan_desktop(entity_id):
@@ -1453,7 +1464,9 @@ def update_plan_desktop(entity_id):
             json={"id": entity_id, "fields": {"UF_CRM_1733493949": cidade_completa}},
         )
 
-        api_response = update_field_and_call_workflow_desktop(cidade_completa, entity_id)
+        api_response = update_field_and_call_workflow_desktop(
+            cidade_completa, entity_id
+        )
         return (
             jsonify(
                 {
@@ -1559,6 +1572,7 @@ def update_plan_vero(entity_id):
         log_erro("Erro interno", e)
         return jsonify({"error": "Erro interno no servidor", "details": str(e)}), 500
 
+
 @app.route("/update-plan-blfibra/<string:entity_id>", methods=["POST"])
 def update_plan_blfibra(entity_id):
     try:
@@ -1587,7 +1601,9 @@ def update_plan_blfibra(entity_id):
             json={"id": entity_id, "fields": {"UF_CRM_1733493949": cidade_completa}},
         )
 
-        api_response = update_field_and_call_workflow_blfibra(cidade_completa, entity_id)
+        api_response = update_field_and_call_workflow_blfibra(
+            cidade_completa, entity_id
+        )
         return (
             jsonify(
                 {
@@ -1602,6 +1618,7 @@ def update_plan_blfibra(entity_id):
     except Exception as e:
         log_erro("Erro interno", e)
         return jsonify({"error": "Erro interno no servidor", "details": str(e)}), 500
+
 
 @app.route("/update-plan-master/<string:entity_id>", methods=["POST"])
 def update_plan_master(entity_id):
@@ -1721,7 +1738,9 @@ def update_plan_implantar(entity_id):
             json={"id": entity_id, "fields": {"UF_CRM_1733493949": cidade_completa}},
         )
 
-        api_response = update_field_and_call_workflow_implantar(cidade_completa, entity_id)
+        api_response = update_field_and_call_workflow_implantar(
+            cidade_completa, entity_id
+        )
         return (
             jsonify(
                 {
