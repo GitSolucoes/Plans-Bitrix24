@@ -499,7 +499,6 @@ CITIES_API_VERO_GRAFENO_80 = [
     "IRACEMAPOLIS - SP",
     "ITAPEVI - SP",
     "ITAPURA - SP",
-    "ITAQUAQUECETUBA - SP",
     "ITU - SP",
     "JALES - SP",
     "JANDIRA - SP",
