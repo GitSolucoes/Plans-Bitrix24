@@ -395,38 +395,38 @@ CITIES_API_VERO_REDE_NEUTRA = [
 ]
 
 CITIES_API_VERO_SAFIRA = [
-    "BARBACENA - MG",
-    "BAURU - SP",
-    "DIVINÓPOLIS - MG",
-    "PEDERNEIRAS - SP",
-    "SABARÁ - MG",
-    "TRES LAGOAS - MS",
-    "UBERLANDIA - MG",
     "AGUDOS - SP",
+    "BARBACENA - MG",
     "BARUERI - SP",
+    "BAURU - SP",
     "CORDEIROPOLIS - SP",
     "COTIA - SP",
+    "DIVINÓPOLIS - MG",
     "FERRAZ DE VASCONCELOS - SP",
     "IBIUNA - SP",
     "IPATINGA - MG",
     "IPERO - SP",
     "IRACEMAPOLIS - SP",
     "ITAQUAQUECETUBA - SP",
+    "JUIZ DE FORA - MG",
     "JUNDIAI - SP",
     "LIMEIRA - SP",
     "MANHUAÇU - MG",
+    "MAQUINÉ - RS",
     "OSASCO - SP",
+    "PEDERNEIRAS - SP",
     "PIRATININGA - SP",
     "PRESIDENTE PRUDENTE - SP",
     "RIO GRANDE DA SERRA - SP",
-    "SANTA BÁRBARA D'OESTE - SP",
+    "SABARÁ - MG",
+    "SANTA BARBARA D OESTE - SP",
     "SAO JOSE DOS CAMPOS - SP",
     "SAO PAULO - SP",
     "SUZANO - SP",
-    "VALPARAÍSO DE GOIAS - GO",
-    "JUIZ DE FORA - MG",
-    "MAQUINÉ - RS",
     "TRAMANDAÍ - RS",
+    "TRES LAGOAS - MS",
+    "UBERLANDIA - MG",
+    "VALPARAÍSO DE GOIAS - GO"
 ]
 
 CITIES_API_VERO_GRAFENO_70 = [
@@ -1191,6 +1191,8 @@ def get_api_url_vero(cidade):
         clusters.append("VERO GRAFENO_80")
     if cidade in CITIES_API_VERO_GRAFENO_75:
         clusters.append("VERO GRAFENO_75")
+    if cidade in CITIES_API_VERO_GRAFENO_70:
+        clusters.append("VERO GRAFENO_70")
     if cidade in CITIES_API_VERO_SAFIRA:
         clusters.append("VERO SAFIRA")
     return clusters
