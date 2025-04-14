@@ -1056,7 +1056,6 @@ CITIES_API_IMPLANTAR_PADRAO = ["BELO HORIZONTE - MG", "SABARÁ - MG", "CONTAGEM 
 # FUNCÃO PARA VERO
 def get_api_url_vero(cidade):
     clusters = []
-<<<<<<< HEAD
     result = searchForCluster(cidade, "VERO")
     for row in result :
         clusters.append(f"{row[0]} {row[1]}")
@@ -1076,31 +1075,12 @@ def get_api_url_vero(cidade):
     #     clusters.append("VERO GRAFENO_75")
     # if cidade in CITIES_API_VERO_SAFIRA:
     #     clusters.append("VERO SAFIRA")
-=======
-    if cidade in CITIES_API_VERO_OURO:
-        clusters.append("VERO OURO")
-    if cidade in CITIES_API_VERO_PADRAO:
-        clusters.append("VERO PADRÃO")
-    if cidade in CITIES_API_VERO_PRATA:
-        clusters.append("VERO PRATA")
-    if cidade in CITIES_API_VERO_REDE_NEUTRA:
-        clusters.append("VERO REDE NEUTRA")
-    if cidade in CITIES_API_VERO_GRAFENO_80:
-        clusters.append("VERO GRAFENO_80")
-    if cidade in CITIES_API_VERO_GRAFENO_75:
-        clusters.append("VERO GRAFENO_75")
-    if cidade in CITIES_API_VERO_GRAFENO_70:
-        clusters.append("VERO GRAFENO_70")
-    if cidade in CITIES_API_VERO_SAFIRA:
-        clusters.append("VERO SAFIRA")
->>>>>>> 7599fc67fdee412605088891c9ab87c08ab45804
     return clusters
 
 
 # FUNÇÃO PARA DESKTOP
 def get_api_url_desktop(cidade):
     clusters = []
-<<<<<<< HEAD
     result = searchForCluster(cidade, "DESKTOP")
     for row in result :
         clusters.append(f"{row[1]}")
@@ -1120,20 +1100,6 @@ def get_api_url_desktop(cidade):
     #     clusters.append("LPNET PADRÃO")
     # if cidade in CITIES_API_DESK_LPNET_TIO_SAM:
     #     clusters.append("LPNET TIOSAM")
-=======
-    if cidade in CITIES_API_DESKTOP_PADRAO:
-        clusters.append("DESKTOP PADRÃO")
-    if cidade in CITIES_API_DESKTOP_BARRETOS:
-        clusters.append("DESKTOP BARRETOS")
-    if cidade in CITIES_API_DESKTOP_TIO_SAM:
-        clusters.append("DESKTOP TIOSAM")
-    if cidade in CITIES_API_FASTERNET_PADRAO:
-        clusters.append("FASTERNET PADRÃO")
-    if cidade in CITIES_API_FASTERNET_TIO_SAM:
-        clusters.append("FASTERNET TIOSAM")
-    if cidade in CITIES_API_LPNET_PADRAO:
-        clusters.append("LPNET PADRÃO")
->>>>>>> 7599fc67fdee412605088891c9ab87c08ab45804
     return clusters
 
 
