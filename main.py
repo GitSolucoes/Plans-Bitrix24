@@ -3,6 +3,7 @@ import requests
 from dotenv import load_dotenv
 import os
 import time
+import psycopg2
 
 app = Flask(__name__)
 
@@ -12,6 +13,38 @@ BITRIX_WEBHOOK_URL = os.getenv("BITRIX_WEBHOOK_URL")
 URL_VPS = os.getenv("URL_VPS")
 
 BITRIX_WEBHOOK_URL = f"{BITRIX_WEBHOOK_URL}"
+
+def searchForCluster (city, operadora) :
+    conn = None
+    try:
+        conn = psycopg2.connect(
+            host = os.getenv("DBHOST"),        
+            database = os.getenv("DATABASE"),  
+            user = os.getenv("DBUSER"),         
+            password = os.getenv("DBPASSWORD"),
+            port = os.getenv("DBPORT")      
+        )
+        cursor = conn.cursor()
+
+        sql_before = "CREATE EXTENSION IF NOT EXISTS unaccent"
+        cursor.execute(sql_before)
+        
+        sql = f"SELECT company, cluster FROM clusters_table where unaccent(city) = unaccent('{city}') and company = '{operadora}'"
+        cursor.execute(sql)
+        
+        resultados = cursor.fetchall()
+        
+        for row in resultados:
+            print("Coluna1:", row[0], "Coluna2:", row[1])
+
+        return resultados
+            
+    except (Exception, psycopg2.DatabaseError) as error:
+        print("Erro ao buscar dados:", error)
+    finally:
+        if conn is not None:
+            cursor.close()
+            conn.close()
 
 
 def log_erro(mensagem, e=None):
@@ -1147,84 +1180,119 @@ CITIES_API_IMPLANTAR_PADRAO = ["BELO HORIZONTE - MG", "SABARÁ - MG", "CONTAGEM 
 # FUNCÃO PARA VERO
 def get_api_url_vero(cidade):
     clusters = []
-    if cidade in CITIES_API_VERO_OURO:
-        clusters.append("VERO OURO")
-    if cidade in CITIES_API_VERO_PADRAO:
-        clusters.append("VERO PADRÃO")
-    if cidade in CITIES_API_VERO_PRATA:
-        clusters.append("VERO PRATA")
-    if cidade in CITIES_API_VERO_REDE_NEUTRA:
-        clusters.append("VERO REDE NEUTRA")
-    if cidade in CITIES_API_VERO_GRAFENO_80:
-        clusters.append("VERO GRAFENO_80")
-    if cidade in CITIES_API_VERO_GRAFENO_75:
-        clusters.append("VERO GRAFENO_75")
-    if cidade in CITIES_API_VERO_SAFIRA:
-        clusters.append("VERO SAFIRA")
+    result = searchForCluster(cidade, "VERO")
+    for row in result :
+        clusters.append(f"{row[0]} {row[1]}")
+
+    print(f"Clusters: {clusters}")
+    # if cidade in CITIES_API_VERO_OURO:
+    #     clusters.append("VERO OURO")
+    # if cidade in CITIES_API_VERO_PADRAO:
+    #     clusters.append("VERO PADRÃO")
+    # if cidade in CITIES_API_VERO_PRATA:
+    #     clusters.append("VERO PRATA")
+    # if cidade in CITIES_API_VERO_REDE_NEUTRA:
+    #     clusters.append("VERO REDE NEUTRA")
+    # if cidade in CITIES_API_VERO_GRAFENO_80:
+    #     clusters.append("VERO GRAFENO_80")
+    # if cidade in CITIES_API_VERO_GRAFENO_75:
+    #     clusters.append("VERO GRAFENO_75")
+    # if cidade in CITIES_API_VERO_SAFIRA:
+    #     clusters.append("VERO SAFIRA")
     return clusters
 
 
 # FUNÇÃO PARA DESKTOP
 def get_api_url_desktop(cidade):
     clusters = []
-    if cidade in CITIES_API_DESKTOP_PADRAO:
-        clusters.append("DESKTOP PADRÃO")
-    if cidade in CITIES_API_DESKTOP_BARRETOS:
-        clusters.append("DESKTOP BARRETOS")
-    if cidade in CITIES_API_DESKTOP_TIO_SAM:
-        clusters.append("DESKTOP TIOSAM")
-    if cidade in CITIES_API_DESK_FASTERNET_PADRAO:
-        clusters.append("FASTERNET PADRÃO")
-    if cidade in CITIES_API_DESK_FASTERNET_TIO_SAM:
-        clusters.append("FASTERNET TIOSAM")
-    if cidade in CITIES_API_DESK_LPNET_PADRAO:
-        clusters.append("LPNET PADRÃO")
-    if cidade in CITIES_API_DESK_LPNET_TIO_SAM:
-        clusters.append("LPNET TIOSAM")
+    result = searchForCluster(cidade, "DESKTOP")
+    for row in result :
+        clusters.append(f"{row[1]}")
+
+    print(f"Clusters: {clusters}")
+    # if cidade in CITIES_API_DESKTOP_PADRAO:
+    #     clusters.append("DESKTOP PADRÃO")
+    # if cidade in CITIES_API_DESKTOP_BARRETOS:
+    #     clusters.append("DESKTOP BARRETOS")
+    # if cidade in CITIES_API_DESKTOP_TIO_SAM:
+    #     clusters.append("DESKTOP TIOSAM")
+    # if cidade in CITIES_API_DESK_FASTERNET_PADRAO:
+    #     clusters.append("FASTERNET PADRÃO")
+    # if cidade in CITIES_API_DESK_FASTERNET_TIO_SAM:
+    #     clusters.append("FASTERNET TIOSAM")
+    # if cidade in CITIES_API_DESK_LPNET_PADRAO:
+    #     clusters.append("LPNET PADRÃO")
+    # if cidade in CITIES_API_DESK_LPNET_TIO_SAM:
+    #     clusters.append("LPNET TIOSAM")
     return clusters
 
 
 # FUNÇÃO PARA GIGA+
 def get_api_url_giga(cidade):
     clusters = []
-    if cidade in CITIES_API_GIGA_TERRITORIO_T1_a_T9:
-        clusters.append("GIGA T1_A_T9")
-    if cidade in CITIES_API_GIGA_TERRITORIO_T10_a_T14:
-        clusters.append("GIGA T10_A_T14")
-    if cidade in CITIES_API_GIGA_TERRITORIO_CIDADES_ESPECIAIS:
-        clusters.append("GIGA T_CIDADES_ESPECIAIS")
+    result = searchForCluster(cidade, "GIGA")
+    for row in result :
+        clusters.append(f"{row[0]} {row[1]}")
+
+    print(f"Clusters: {clusters}")
+    # if cidade in CITIES_API_GIGA_TERRITORIO_T1_a_T9:
+    #     clusters.append("GIGA T1_A_T9")
+    # if cidade in CITIES_API_GIGA_TERRITORIO_T10_a_T14:
+    #     clusters.append("GIGA T10_A_T14")
+    # if cidade in CITIES_API_GIGA_TERRITORIO_CIDADES_ESPECIAIS:
+    #     clusters.append("GIGA T_CIDADES_ESPECIAIS")
     return clusters
 
 
 # FUNÇÃO PARA BL FIBRA
 def get_api_url_blfibra(cidade):
     clusters = []
-    if cidade in CITIES_API_BL_FIBRA_PADRAO:
-        clusters.append("BL FIBRA PADRAO")
+    result = searchForCluster(cidade, "BL FIBRA")
+    for row in result :
+        clusters.append(f"{row[0]} {row[1]}")
+
+    print(f"Clusters: {clusters}")
+    # if cidade in CITIES_API_BL_FIBRA_PADRAO:
+    #     clusters.append("BL FIBRA PADRAO")
     return clusters
 
 
 # FUNÇÃO PARA MASTER
 def get_api_url_master(cidade):
     clusters = []
-    if cidade in CITIES_API_MASTER_PADRAO:
-        clusters.append("MASTER PADRAO")
+    result = searchForCluster(cidade, "MASTER")
+    for row in result :
+        clusters.append(f"{row[0]} {row[1]}")
+
+    print(f"Clusters: {clusters}")
+    # if cidade in CITIES_API_MASTER_PADRAO:
+    #     clusters.append("MASTER PADRAO")
     return clusters
 
 
 # FUNÇÃO PARA BLINK
 def get_api_url_blink(cidade):
     clusters = []
-    if cidade in CITIES_API_BLINK_PADRAO:
-        clusters.append("BLINK PADRAO")
+    result = searchForCluster(cidade, "BLINK")
+    for row in result :
+        clusters.append(f"{row[0]} {row[1]}")
+
+    print(f"Clusters: {clusters}")
+    # if cidade in CITIES_API_BLINK_PADRAO:
+    #     clusters.append("BLINK PADRAO")
     return clusters
 
 
 # FUNCÃO PARA IMPLANTAR
 def get_api_url_implantar(cidade):
     clusters = []
-    if cidade in CITIES_API_IMPLANTAR_PADRAO:
-        clusters.append("IMPLANTAR PADRAO")
+    result = searchForCluster(cidade, "IMPLANTAR")
+    for row in result :
+        clusters.append(f"{row[0]} {row[1]}")
+
+    print(f"Clusters: {clusters}")
+    # if cidade in CITIES_API_IMPLANTAR_PADRAO:
+    #     clusters.append("IMPLANTAR PADRAO")
     return clusters
 
 
@@ -1557,6 +1625,8 @@ def update_plan_vero(entity_id):
         )
 
         api_response = update_field_and_call_workflow_vero(cidade_completa, entity_id)
+
+        searchForCluster(cidade_completa, "VERO")
         return (
             jsonify(
                 {
