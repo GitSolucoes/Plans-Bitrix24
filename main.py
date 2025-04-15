@@ -3,7 +3,6 @@ import requests
 from dotenv import load_dotenv
 import os
 import time
-import psycopg2
 
 app = Flask(__name__)
 
@@ -13,38 +12,6 @@ BITRIX_WEBHOOK_URL = os.getenv("BITRIX_WEBHOOK_URL")
 URL_VPS = os.getenv("URL_VPS")
 
 BITRIX_WEBHOOK_URL = f"{BITRIX_WEBHOOK_URL}"
-
-def searchForCluster (city, operadora) :
-    conn = None
-    try:
-        conn = psycopg2.connect(
-            host = os.getenv("DBHOST"),        
-            database = os.getenv("DATABASE"),  
-            user = os.getenv("DBUSER"),         
-            password = os.getenv("DBPASSWORD"),
-            port = os.getenv("DBPORT")      
-        )
-        cursor = conn.cursor()
-
-        sql_before = "CREATE EXTENSION IF NOT EXISTS unaccent"
-        cursor.execute(sql_before)
-        
-        sql = f"SELECT company, cluster FROM clusters_table where unaccent(city) = unaccent('{city}') and company = '{operadora}'"
-        cursor.execute(sql)
-        
-        resultados = cursor.fetchall()
-        
-        for row in resultados:
-            print("Coluna1:", row[0], "Coluna2:", row[1])
-
-        return resultados
-            
-    except (Exception, psycopg2.DatabaseError) as error:
-        print("Erro ao buscar dados:", error)
-    finally:
-        if conn is not None:
-            cursor.close()
-            conn.close()
 
 
 def log_erro(mensagem, e=None):
@@ -56,6 +23,7 @@ def log_erro(mensagem, e=None):
     if e:
         print(f"[DETALHES] {str(e)}")
     print(f"[TRACEBACK] {erro_detalhado}\n")
+
 
 # CIDADES DA OPERADORA VERO - INTERNET
 CITIES_API_VERO_OURO = [
@@ -266,7 +234,6 @@ CITIES_API_VERO_PRATA = [
     "PIRASSUNUNGA - SP",
     "PIRATININGA - SP",
     "POA - SP",
-    "POÁ - SP",
     "PORTO FERREIRA - SP",
     "POTIM - SP",
     "PRESIDENTE BERNARDES - SP",
@@ -594,7 +561,6 @@ CITIES_API_VERO_GRAFENO_80 = [
     "PIRAJUI - SP",
     "PIRAPORA DO BOM JESUS - SP",
     "POA - SP",
-    "POÁ - SP",
     "PORTO FERREIRA - SP",
     "POTIM - SP",
     "PRESIDENTE BERNARDES - SP",
@@ -925,68 +891,225 @@ CITIES_API_GIGA_TERRITORIO_CIDADES_ESPECIAIS = [
 
 # CIDADES DA OPERADORA DESKTOP - INTERNET
 
+# CITIES_API_DESKTOP_BRONZE = ["MOGI GUAÇU - SP", "SÃO JOSÉ DOS CAMPOS - SP", "AGUAÍ - SP", "ÁGUAS DE SANTA BÁRBARA - SP", "AGUDOS - SP", "ALUMÍNIO - SP", "AMERICANA - SP", "AMÉRICO BRASILIENSE - SP", "AMPARO - SP", "ANGATUBA - SP", "ARAÇARIGUAMA - SP", "ARAÇOIABA DA SERRA - SP", "ARANDU - SP", "ARARAQUARA - SP", "ARARAS - SP", "AREALVA - SP", "AREIÓPOLIS - SP", "ATIBAIA - SP", "AVAÍ - SP", "AVARÉ - SP", "BARRA BONITA - SP", "BAURU - SP", "BIRITIBA MIRIM - SP", "BIRITIBA-MIRIM - SP", "BOA ESPERANÇA DO SUL - SP", "BOCAINA - SP", "BOFETE - SP", "BOITUVA - SP", "BOM JESUS DOS PERDÕES - SP", "BORBOREMA - SP", "BOREBI - SP", "BOTUCATU - SP", "BRAGANÇA PAULISTA - SP", "CABREÚVA - SP", "CAÇAPAVA - SP", "CAIEIRAS - SP", "CAMPINA DO MONTE ALEGRE - SP", "CAMPINAS - SP", "CAMPO LIMPO PAULISTA - SP", "CÂNDIDO RODRIGUES - SP", "CAPELA DO ALTO - SP", "CAPIVARI - SP", "CERQUEIRA CÉSAR - SP", "CERQUILHO - SP", "CESÁRIO LANGE - SP", "COLINA - SP", "CONCHAL - SP", "CONCHAS - SP", "CORDEIRÓPOLIS - SP", "CRISTAIS PAULISTA - SP", "DOBRADA - SP", "DOIS CÓRREGOS - SP", "DOURADO - SP", "ELIAS FAUSTO - SP", "ENGENHEIRO COELHO - SP", "FERNANDO PRESTES - SP", "FRANCA - SP", "FRANCISCO MORATO - SP", "FRANCO DA ROCHA - SP", "GAVIÃO PEIXOTO - SP", "GUAÍRA - SP", "GUARANTÃ - SP", "GUARAREMA - SP", "GUARIBA - SP", "GUARUJÁ - SP", "GUATAPARÁ - SP", "HOLAMBRA - SP", "HORTOLÂNDIA - SP", "LARAS - SP", "IBATÉ - SP", "IBITINGA - SP", "IGARAÇU DO TIETÊ - SP", "IGARATÁ - SP", "IPERÓ - SP", "IRACEMÁPOLIS - SP", "ITAÍ - SP", "ITAJOBI - SP", "ITAJU - SP", "ITANHAÉM - SP", "ITAPUÍ - SP", "ITATINGA - SP", "ITIRAPUÃ - SP", "ITU - SP", "JABORANDI - SP", "JABOTICABAL - SP", "JACAREÍ - SP", "JAGUARIÚNA - SP", "JARINU - SP", "JAÚ - SP", "JUMIRIM - SP", "JUNDIAÍ - SP", "LARANJAL PAULISTA - SP", "LENÇÓIS PAULISTA - SP", "LINDÓIA - SP", "LOUVEIRA - SP", "MACATUBA - SP", "MAIRIPORÃ - SP", "MANDURI - SP", "MATÃO - SP", "MINEIROS DO TIETÊ - SP", "MOGI DAS CRUZES - SP", "MONTE MOR - SP", "MOTUCA - SP", "NAZARÉ PAULISTA - SP", "NOVA EUROPA - SP", "NOVA ODESSA - SP", "ÓLEO - SP", "PARANAPANEMA - SP", "PARDINHO - SP", "PATROCÍNIO PAULISTA - SP", "PAULÍNIA - SP", "PEDERNEIRAS - SP", "PEDREIRA - SP", "PEREIRAS - SP", "PINDORAMA - SP", "PIRACAIA - SP", "PIRACICABA - SP", "PIRATININGA - SP", "PITANGUEIRAS - SP", "PORANGABA - SP", "PRAIA GRANDE - SP", "PRATÂNIA - SP", "PRESIDENTE ALVES - SP", "QUADRA - SP", "RAFARD - SP", "RIBEIRÃO BONITO - SP", "RIBEIRÃO CORRENTE - SP", "RIBEIRÃO PRETO - SP", "RINCÃO - SP", "RIO CLARO - SP", "RIO DAS PEDRAS - SP", "SALESÓPOLIS - SP", "SALTINHO - SP", "SALTO DE PIRAPORA - SP", "SANTA ADÉLIA - SP", "SANTA BÁRBARA D’OESTE - SP", "ITAPETININGA - SP", "ITÁPOLIS - SP", "SANTA ERNESTINA - SP", "SANTA GERTRUDES - SP", "SANTA LÚCIA - SP", "SANTO ANTÔNIO DE POSSE - SP", "SANTOS - SP", "SÃO CARLOS - SP", "SÃO MANUEL - SP", "SÃO VICENTE - SP", "SARAPUÍ - SP", "SERRA AZUL - SP", "SERRA NEGRA - SP", "SOROCABA - SP", "SUMARÉ - SP", "TABATINGA - SP", "TATUÍ - SP", "TAUBATÉ - SP", "TIETÊ - SP", "TRABIJU - SP", "TREMEMBÉ - SP", "VALINHOS - SP", "VÁRZEA PAULISTA - SP", "VINHEDO - SP", "VOTORANTIM - SP",  "MONGAGUÁ - SP"]
+# CITIES_API_DESKTOP_PRATA = ["BÁLSAMO - SP", "BARRETOS - SP", "OLÍMPIA - SP"]
+# CITIS_API_DESKTOP_OURO = ["BEBEDOURO - SP"]
+# CITIS_API_DESKTOP_PLATINA = ["SANTA CRUZ DAS PALMEIRAS - SP", "CAFELÂNDIA - SP", "CASA BRANCA - SP", "COSMÓPOLIS - SP", "ESTIVA GERBI - SP", "INDAIATUBA - SP", "ITUPEVA - SP", "LINS - SP", "CEDRAL - SP", "ARTUR NOGUEIRA - SP", "CRAVINHOS - SP", "CUBATÃO - SP", "DESCALVADO - SP", "LEME - SP", "LIMEIRA - SP", "MIRASSOL - SP", "MOGI-MIRIM - SP", "MONTE ALEGRE DO SUL - SP", "MONTE ALTO - SP", "PERUÍBE - SP", "PILAR DO SUL - SP", "PIRASSUNUNGA - SP", "PORTO FERREIRA - SP", "SANTA RITA DO PASSA QUATRO - SP", "SÃO JOSÉ DO RIO PRETO - SP",  "TAMBAÚ - SP"]
+# CITIS_API_DESKTOP_DIAMANTE = ["SÃO PAULO - SP"]
+# CITIS_API_DESKTOP_ASCENDENTE = ["SANTA BRANCA - SP"]
+
 CITIES_API_DESKTOP_PADRAO = [
-  "AMPARO - SP", "CAMPINAS - SP", "HOLAMBRA - SP", "HORTOLÂNDIA - SP", "JAGUARIÚNA - SP",
-  "LINDÓIA - SP", "MONTE MOR - SP", "PEDREIRA - SP", "SANTO ANTÔNIO DE POSSE - SP", "SERRA NEGRA - SP",
-  "ALUMÍNIO - SP", "CAPIVARI - SP", "ELIAS FAUSTO - SP", "RAFARD - SP", "SOROCABA - SP",
-  "VOTORANTIM - SP", "ÁGUAÍ - SP", "AMERICANA - SP", "CORDEIRÓPOLIS - SP", "ENGENHEIRO COELHO - SP",
-  "IRACEMÁPOLIS - SP", "NOVA ODESSA - SP", "PAULÍNIA - SP", "PIRACICABA - SP", "SANTA BÁRBARA D'OESTE - SP",
-  "SANTA GERTRUDES - SP", "SUMARÉ - SP", "SERRA AZUL - SP", "AVAÍ - SP", "GUARANTÃ - SP",
-  "PIRAJUÍ - SP", "PRESIDENTE ALVES - SP", "AMÉRICO BRASILIENSE - SP", "ARARAQUARA - SP", "BOA ESPERANÇA DO SUL - SP",
-  "BORBOREMA - SP", "DESCALVADO - SP", "RIBEIRÃO PRETO - SP", "DOBRADA - SP", "DOURADO - SP",
-  "GAVIÃO PEIXOTO - SP", "GUARIBA - SP", "GUATAPARÁ - SP", "IBATÉ - SP", "IBITINGA - SP",
-  "ITAJU - SP", "ITÁPOLIS - SP", "MATÃO - SP", "MOTUCA - SP", "NOVA EUROPA - SP",
-  "RIBEIRÃO BONITO - SP", "RINCÃO - SP", "SANTA ERNESTINA - SP", "SANTA LÚCIA - SP", "SÃO CARLOS - SP",
-  "TABATINGA - SP", "TRABIJU - SP", "CÂNDIDO RODRIGUES - SP", "COLINA - SP", "CRISTAIS PAULISTA - SP",
-  "FERNANDO PRESTES - SP", "GUAÍRA - SP", "ITAJOBI - SP", "ITIRAPUÃ - SP", "JABORANDI - SP",
-  "JABOTICABAL - SP", "MONTE ALTO - SP", "PATROCÍNIO PAULISTA - SP", "PINDORAMA - SP", "PITANGUEIRAS - SP",
-  "RIBEIRÃO CORRENTE - SP", "SANTA ADÉLIA - SP", "AREIÓPOLIS - SP", "BAURU - SP", "BOTUCATU - SP",
-  "LENÇÓIS PAULISTA - SP", "ÓLEO - SP", "PARANAPANEMA - SP", "PIRATININGA - SP", "PRATÂNIA - SP",
-  "SÃO MANUEL - SP", "ARAÇARIGUAMA - SP", "ATIBAIA - SP", "BOM JESUS DOS PERDÕES - SP", "BRAGANÇA PAULISTA - SP",
-  "CABREÚVA - SP", "CAIEIRAS - SP", "CAMPO LIMPO PAULISTA - SP", "FRANCISCO MORATO - SP", "FRANCO DA ROCHA - SP",
-  "JARINU - SP", "LOUVEIRA - SP", "MAIRIPORÃ - SP", "NAZARÉ PAULISTA - SP", "PIRACAIA - SP",
-  "VÁRZEA PAULISTA - SP", "VINHEDO - SP", "CUBATÃO - SP", "GUARUJÁ - SP", "ITANHAÉM - SP",
-  "MONGAGUÁ - SP", "PRAIA GRANDE - SP", "SANTOS - SP", "SÃO BERNARDO DO CAMPO - SP", "SÃO VICENTE - SP",
-  "BIRITIBA-MIRIM - SP", "CAÇAPAVA - SP", "GUARAREMA - SP", "IGARATÁ - SP", "JACAREÍ - SP",
-  "MOGI DAS CRUZES - SP", "SALESÓPOLIS - SP", "SANTA BRANCA - SP", "SÃO JOSÉ DOS CAMPOS - SP",
-  "TAUBATÉ - SP", "TREMEMBÉ - SP"
+    "AMPARO - SP",
+    "SOROCABA - SP",
+    "CAMPINAS - SP",
+    "HOLAMBRA - SP",
+    "HORTOLÂNDIA - SP",
+    "JAGUARIÚNA - SP",
+    "LINDÓIA - SP",
+    "MONTE MOR - SP",
+    "PEDREIRA - SP",
+    "SANTO ANTÔNIO DE POSSE - SP",
+    "SERRA NEGRA - SP",
+    "ALUMÍNIO - SP",
+    "NOVA ODESSA - SP",
+    "PAULÍNIA - SP",
+    "PIRACICABA - SP",
+    "SANTA BÁRBARA D'OESTE - SP",
+    "SANTA GERTRUDES - SP",
+    "SANTA RITA DO PASSA QUATRO - SP",
+    "SUMARÉ - SP",
+    "SERRA AZUL - SP",
+    "AVAÍ - SP",
+    "GUARANTÃ - SP",
+    "PIRAJUÍ - SP",
+    "PRESIDENTE ALVES - SP",
+    "AMÉRICO BRASILIENSE - SP",
+    "ARARAQUARA - SP",
+    "BOA ESPERANÇA DO SUL - SP",
+    "BORBOREMA - SP",
+    "DESCALVADO - SP",
+    "DOBRADA - SP",
+    "DOURADO - SP",
+    "GAVIÃO PEIXOTO - SP",
+    "GUARIBA - SP",
+    "GUATAPARÁ - SP",
+    "IBATÉ - SP",
+    "IBITINGA - SP",
+    "ITÁPOLIS - SP",
+    "MATÃO - SP",
+    "MOTUCA - SP",
+    "NOVA EUROPA - SP",
+    "RIBEIRÃO BONITO - SP",
+    "RINCÃO - SP",
+    "SANTA LÚCIA - SP",
+    "SÃO CARLOS - SP",
+    "TABATINGA - SP",
+    "COLINA - SP",
+    "FERNANDO PRESTES - SP",
+    "GUAÍRA - SP",
+    "ITAJOBI - SP",
+    "JABORANDI - SP",
+    "JABOTICABAL - SP",
+    "MONTE ALTO - SP",
+    "PINDORAMA - SP",
+    "PITANGUEIRAS - SP",
+    "SANTA ADÉLIA - SP",
+    "BAURU - SP",
+    "BOTUCATU - SP",
+    "LENÇÓIS PAULISTA - SP",
+    "PIRATININGA - SP",
+    "ARAÇARIGUAMA - SP",
+    "ATIBAIA - SP",
+    "BOM JESUS DOS PERDÕES - SP",
+    "BRAGANÇA PAULISTA - SP",
+    "CABREÚVA - SP",
+    "CAIEIRAS - SP",
+    "CAMPO LIMPO PAULISTA - SP",
+    "FRANCISCO MORATO - SP",
+    "FRANCO DA ROCHA - SP",
+    "JARINU - SP",
+    "LOUVEIRA - SP",
+    "MAIRIPORÃ - SP",
+    "NAZARÉ PAULISTA - SP",
+    "PIRACAIA - SP",
+    "VÁRZEA PAULISTA - SP",
+    "VINHEDO - SP",
+    "CUBATÃO - SP",
+    "GUARUJÁ - SP",
+    "ITANHAÉM - SP",
+    "MONGAGUÁ - SP",
+    "PRAIA GRANDE - SP",
+    "SANTOS - SP",
+    "SÃO BERNARDO DO CAMPO - SP",
+    "SÃO VICENTE - SP",
+    "BIRITIBA-MIRIM - SP",
+    "CAÇAPAVA - SP",
+    "GUARAREMA - SP",
+    "IGARATÁ - SP",
+    "JACAREÍ - SP",
+    "MOGI DAS CRUZES - SP",
+    "SALESÓPOLIS - SP",
+    "SANTA BRANCA - SP",
+    "SÃO JOSÉ DOS CAMPOS - SP",
+    "TAUBATÉ - SP",
+    "TREMEMBÉ - SP",
+    "CAPIVARI - SP",
+    "ELIAS FAUSTO - SP",
+    "RAFARD - SP",
+    "VOTORANTIM - SP",
+    "AGUAÍ - SP",
+    "AMERICANA - SP",
+    "CASA BRANCA - SP",
+    "CORDEIRÓPOLIS - SP",
+    "ENGENHEIRO COELHO - SP",
+    "IRACEMÁPOLIS - SP",
+    "ITAJU - SP",
+    "SANTA ERNESTINA - SP",
+    "TRABIJU - SP",
+    "AREIÓPOLIS - SP",
+    "ÓLEO - SP",
+    "PARANAPANEMA - SP",
+    "PRATÂNIA - SP",
+    "SÃO MANUEL - SP",
 ]
 
 CITIES_API_DESKTOP_BARRETOS = ["BARRETOS - SP", "BEBEDOURO - SP", "OLÍMPIA - SP"]
 
 CITIES_API_DESKTOP_TIO_SAM = [
-  "ARARAS - SP", "ARTUR NOGUEIRA - SP", "CASA BRANCA - SP", "CONCHAL - SP", "COSMÓPOLIS - SP",
-  "ESTIVA GERBI - SP", "LEME - SP", "LIMEIRA - SP", "MOGI GUAÇU - SP", "MOGI MIRIM - SP",
-  "PIRASSUNUNGA - SP", "PORTO FERREIRA - SP", "SANTA CRUZ DAS PALMEIRAS - SP", "SANTA RITA DO PASSA QUATRO - SP",
-  "SANTA ROSA DE VITERBO - SP", "TAMBAÚ - SP", "CEDRAL - SP", "GUAPIAÇU - SP", "UCHOA - SP",
-  "CAFELÂNDIA - SP", "CRAVINHOS - SP", "BADY BASSITT - SP", "FRANCA - SP", "MIRASSOL - SP",
-  "SÃO JOSÉ DO RIO PRETO - SP", "ÁGUAS DE SANTA BÁRBARA - SP", "ARANDU - SP", "AVARÉ - SP",
-  "CERQUEIRA CÉSAR - SP", "IARAS - SP", "ITAÍ - SP", "ITATINGA - SP", "LINS - SP",
-  "MANDURI - SP", "PARDINHO - SP", "INDAIATUBA - SP", "ITUPEVA - SP", "JUNDIAÍ - SP",
-  "VALINHOS - SP", "PERUÍBE - SP"
+    "ARARAS - SP",
+    "ARTUR NOGUEIRA - SP",
+    "CONCHAL - SP",
+    "COSMÓPOLIS - SP",
+    "ESTIVA GERBI - SP",
+    "LEME - SP",
+    "LIMEIRA - SP",
+    "MOGI GUAÇU - SP",
+    "MOGI MIRIM - SP",
+    "PIRASSUNUNGA - SP",
+    "PORTO FERREIRA - SP",
+    "SANTA CRUZ DAS PALMEIRAS - SP",
+    "SANTA ROSA DE VITERBO - SP",
+    "TAMBAÚ - SP",
+    "CEDRAL - SP",
+    "GUAPIAÇU - SP",
+    "UCHOA - SP",
+    "CAFELÂNDIA - SP",
+    "CRAVINHOS - SP",
+    "BADY BASSITT - SP",
+    "MIRASSOL - SP",
+    "SÃO JOSÉ DO RIO PRETO - SP",
+    "ÁGUAS DE SANTA BÁRBARA - SP",
+    "ARANDU - SP",
+    "AVARÉ - SP",
+    "CERQUEIRA CÉSAR - SP",
+    "IARAS - SP",
+    "ITAÍ - SP",
+    "ITATINGA - SP",
+    "LINS - SP",
+    "MANDURI - SP",
+    "PARDINHO - SP",
+    "INDAIATUBA - SP",
+    "ITUPEVA - SP",
+    "JUNDIAÍ - SP",
+    "VALINHOS - SP",
+    "PERUÍBE - SP",
 ]
 
-CITIES_API_FASTERNET_PADRAO = [
-  "MONTE ALEGRE DO SUL - SP", "ANGATUBA - SP", "ARAÇOIABA DA SERRA - SP", "BOITUVA - SP",
-  "CAMPINA DO MONTE ALEGRE - SP", "CAPELA DO ALTO - SP", "CERQUILHO - SP", "CESÁRIO LANGE - SP",
-  "CONCHAS - SP", "IPERÓ - SP", "JUMIRIM - SP", "LARANJAL PAULISTA - SP", "PEREIRAS - SP",
-  "PILAR DO SUL - SP", "PORANGABA - SP", "QUADRA - SP", "RIO DAS PEDRAS - SP", "SALTINHO - SP",
-  "SALTO DE PIRAPORA - SP", "SARAPUÍ - SP", "TATUÍ - SP", "TIETÊ - SP", "RIO CLARO - SP"
+
+CITIES_API_DESK_FASTERNET_PADRAO = [
+    "MONTE ALEGRE DO SUL - SP",
+    "ANGATUBA - SP",
+    "ARAÇOIABA DA SERRA - SP",
+    "BOITUVA - SP",
+    "CAMPINA DO MONTE ALEGRE - SP",
+    "CAPELA DO ALTO - SP",
+    "CERQUILHO - SP",
+    "CESÁRIO LANGE - SP",
+    "CONCHAS - SP",
+    "IPERÓ - SP",
+    "JUMIRIM - SP",
+    "LARANJAL PAULISTA - SP",
+    "PEREIRAS - SP",
+    "PILAR DO SUL - SP",
+    "PORANGABA - SP",
+    "QUADRA - SP",
+    "RIO DAS PEDRAS - SP",
+    "SALTINHO - SP",
+    "SALTO DE PIRAPORA - SP",
+    "SARAPUÍ - SP",
+    "TATUÍ - SP",
+    "TIETÊ - SP",
+    "RIO CLARO - SP",
+    "CRISTAIS PAULISTA - SP",
+    "ITIRAPUÃ - SP",
+    "PATROCÍNIO PAULISTA - SP",
+    "RIBEIRÃO CORRENTE - SP",
 ]
 
-CITIES_API_FASTERNET_TIO_SAM = [
+CITIES_API_DESK_FASTERNET_TIO_SAM = [
     "BOFETE - SP",
     "ITAPETININGA - SP",
     "ITÚ - SP",
-    "SALTO - SP"
+    "SALTO - SP",
+    "FRANCA - SP",
 ]
 
-CITIES_API_LPNET_PADRAO = [
-  "BOCAINA - SP", "AGUDOS - SP", "BARRA BONITA - SP", "BOREBI - SP", "DOIS CÓRREGOS - SP",
-  "IGARAÇU DO TIETÊ - SP", "ITAPUÍ - SP", "JAÚ - SP", "MACATUBA - SP", "MINEIROS DO TIETÊ - SP",
-  "PEDERNEIRAS - SP"
+
+CITIES_API_DESK_LPNET_PADRAO = [
+    "BOCAINA - SP",
+    "AGUDOS - SP",
+    "BARRA BONITA - SP",
+    "BOREBI - SP",
+    "DOIS CÓRREGOS - SP",
+    "IGARAÇU DO TIETÊ - SP",
+    "ITAPUÍ - SP",
+    "JAÚ - SP",
+    "MACATUBA - SP",
+    "MINEIROS DO TIETÊ - SP",
+    "PEDERNEIRAS - SP",
 ]
 
+CITIES_API_DESK_LPNET_TIO_SAM = ["NADA"]
 
 # CIDADES DA OPERADORA BL_FIBRA - INTERNET
 CITIES_API_BL_FIBRA_PADRAO = [
@@ -1056,119 +1179,86 @@ CITIES_API_IMPLANTAR_PADRAO = ["BELO HORIZONTE - MG", "SABARÁ - MG", "CONTAGEM 
 # FUNCÃO PARA VERO
 def get_api_url_vero(cidade):
     clusters = []
-    result = searchForCluster(cidade, "VERO")
-    for row in result :
-        clusters.append(f"{row[0]} {row[1]}")
-
-    print(f"Clusters: {clusters}")
-    # if cidade in CITIES_API_VERO_OURO:
-    #     clusters.append("VERO OURO")
-    # if cidade in CITIES_API_VERO_PADRAO:
-    #     clusters.append("VERO PADRÃO")
-    # if cidade in CITIES_API_VERO_PRATA:
-    #     clusters.append("VERO PRATA")
-    # if cidade in CITIES_API_VERO_REDE_NEUTRA:
-    #     clusters.append("VERO REDE NEUTRA")
-    # if cidade in CITIES_API_VERO_GRAFENO_80:
-    #     clusters.append("VERO GRAFENO_80")
-    # if cidade in CITIES_API_VERO_GRAFENO_75:
-    #     clusters.append("VERO GRAFENO_75")
-    # if cidade in CITIES_API_VERO_SAFIRA:
-    #     clusters.append("VERO SAFIRA")
+    if cidade in CITIES_API_VERO_OURO:
+        clusters.append("VERO OURO")
+    if cidade in CITIES_API_VERO_PADRAO:
+        clusters.append("VERO PADRÃO")
+    if cidade in CITIES_API_VERO_PRATA:
+        clusters.append("VERO PRATA")
+    if cidade in CITIES_API_VERO_REDE_NEUTRA:
+        clusters.append("VERO REDE NEUTRA")
+    if cidade in CITIES_API_VERO_GRAFENO_80:
+        clusters.append("VERO GRAFENO_80")
+    if cidade in CITIES_API_VERO_GRAFENO_75:
+        clusters.append("VERO GRAFENO_75")
+    if cidade in CITIES_API_VERO_GRAFENO_70:
+        clusters.append("VERO GRAFENO_70")
+    if cidade in CITIES_API_VERO_SAFIRA:
+        clusters.append("VERO SAFIRA")
     return clusters
 
 
 # FUNÇÃO PARA DESKTOP
 def get_api_url_desktop(cidade):
     clusters = []
-    result = searchForCluster(cidade, "DESKTOP")
-    for row in result :
-        clusters.append(f"{row[1]}")
-
-    print(f"Clusters: {clusters}")
-    # if cidade in CITIES_API_DESKTOP_PADRAO:
-    #     clusters.append("DESKTOP PADRÃO")
-    # if cidade in CITIES_API_DESKTOP_BARRETOS:
-    #     clusters.append("DESKTOP BARRETOS")
-    # if cidade in CITIES_API_DESKTOP_TIO_SAM:
-    #     clusters.append("DESKTOP TIOSAM")
-    # if cidade in CITIES_API_DESK_FASTERNET_PADRAO:
-    #     clusters.append("FASTERNET PADRÃO")
-    # if cidade in CITIES_API_DESK_FASTERNET_TIO_SAM:
-    #     clusters.append("FASTERNET TIOSAM")
-    # if cidade in CITIES_API_DESK_LPNET_PADRAO:
-    #     clusters.append("LPNET PADRÃO")
-    # if cidade in CITIES_API_DESK_LPNET_TIO_SAM:
-    #     clusters.append("LPNET TIOSAM")
+    if cidade in CITIES_API_DESKTOP_PADRAO:
+        clusters.append("DESKTOP PADRÃO")
+    if cidade in CITIES_API_DESKTOP_BARRETOS:
+        clusters.append("DESKTOP BARRETOS")
+    if cidade in CITIES_API_DESKTOP_TIO_SAM:
+        clusters.append("DESKTOP TIOSAM")
+    if cidade in CITIES_API_DESK_FASTERNET_PADRAO:
+        clusters.append("FASTERNET PADRÃO")
+    if cidade in CITIES_API_DESK_FASTERNET_TIO_SAM:
+        clusters.append("FASTERNET TIOSAM")
+    if cidade in CITIES_API_DESK_LPNET_PADRAO:
+        clusters.append("LPNET PADRÃO")
+    if cidade in CITIES_API_DESK_LPNET_TIO_SAM:
+        clusters.append("LPNET TIOSAM")
     return clusters
 
 
 # FUNÇÃO PARA GIGA+
 def get_api_url_giga(cidade):
     clusters = []
-    result = searchForCluster(cidade, "GIGA")
-    for row in result :
-        clusters.append(f"{row[0]} {row[1]}")
-
-    print(f"Clusters: {clusters}")
-    # if cidade in CITIES_API_GIGA_TERRITORIO_T1_a_T9:
-    #     clusters.append("GIGA T1_A_T9")
-    # if cidade in CITIES_API_GIGA_TERRITORIO_T10_a_T14:
-    #     clusters.append("GIGA T10_A_T14")
-    # if cidade in CITIES_API_GIGA_TERRITORIO_CIDADES_ESPECIAIS:
-    #     clusters.append("GIGA T_CIDADES_ESPECIAIS")
+    if cidade in CITIES_API_GIGA_TERRITORIO_T1_a_T9:
+        clusters.append("GIGA T1_A_T9")
+    if cidade in CITIES_API_GIGA_TERRITORIO_T10_a_T14:
+        clusters.append("GIGA T10_A_T14")
+    if cidade in CITIES_API_GIGA_TERRITORIO_CIDADES_ESPECIAIS:
+        clusters.append("GIGA T_CIDADES_ESPECIAIS")
     return clusters
 
 
 # FUNÇÃO PARA BL FIBRA
 def get_api_url_blfibra(cidade):
     clusters = []
-    result = searchForCluster(cidade, "BL FIBRA")
-    for row in result :
-        clusters.append(f"{row[0]} {row[1]}")
-
-    print(f"Clusters: {clusters}")
-    # if cidade in CITIES_API_BL_FIBRA_PADRAO:
-    #     clusters.append("BL FIBRA PADRAO")
+    if cidade in CITIES_API_BL_FIBRA_PADRAO:
+        clusters.append("BL FIBRA PADRAO")
     return clusters
 
 
 # FUNÇÃO PARA MASTER
 def get_api_url_master(cidade):
     clusters = []
-    result = searchForCluster(cidade, "MASTER")
-    for row in result :
-        clusters.append(f"{row[0]} {row[1]}")
-
-    print(f"Clusters: {clusters}")
-    # if cidade in CITIES_API_MASTER_PADRAO:
-    #     clusters.append("MASTER PADRAO")
+    if cidade in CITIES_API_MASTER_PADRAO:
+        clusters.append("MASTER PADRAO")
     return clusters
 
 
 # FUNÇÃO PARA BLINK
 def get_api_url_blink(cidade):
     clusters = []
-    result = searchForCluster(cidade, "BLINK")
-    for row in result :
-        clusters.append(f"{row[0]} {row[1]}")
-
-    print(f"Clusters: {clusters}")
-    # if cidade in CITIES_API_BLINK_PADRAO:
-    #     clusters.append("BLINK PADRAO")
+    if cidade in CITIES_API_BLINK_PADRAO:
+        clusters.append("BLINK PADRAO")
     return clusters
 
 
 # FUNCÃO PARA IMPLANTAR
 def get_api_url_implantar(cidade):
     clusters = []
-    result = searchForCluster(cidade, "IMPLANTAR")
-    for row in result :
-        clusters.append(f"{row[0]} {row[1]}")
-
-    print(f"Clusters: {clusters}")
-    # if cidade in CITIES_API_IMPLANTAR_PADRAO:
-    #     clusters.append("IMPLANTAR PADRAO")
+    if cidade in CITIES_API_IMPLANTAR_PADRAO:
+        clusters.append("IMPLANTAR PADRAO")
     return clusters
 
 
@@ -1501,8 +1591,6 @@ def update_plan_vero(entity_id):
         )
 
         api_response = update_field_and_call_workflow_vero(cidade_completa, entity_id)
-
-        searchForCluster(cidade_completa, "VERO")
         return (
             jsonify(
                 {
