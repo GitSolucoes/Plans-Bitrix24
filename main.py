@@ -1192,7 +1192,7 @@ def update_field_and_call_workflow_vero(cidade, entity_id):
         f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={clusters_to_string}"
     )
     res2 = requests.post(
-        f"{URL_VPS}/webhook/teste_db_sheet?deal_id={entity_id}"
+        f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
     )
     print(res2.json())
     return {"clusters": clusters_to_string}
@@ -1242,7 +1242,7 @@ def update_field_and_call_workflow_desktop(cidade, entity_id):
         f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={clusters_to_string}"
     )
     res2 = requests.post(
-        f"{URL_VPS}/webhook/teste_db_sheet?deal_id={entity_id}"
+        f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
     )
     print(res2.json())
     return {"clusters": clusters_to_string}
