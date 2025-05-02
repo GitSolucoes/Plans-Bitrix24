@@ -1172,6 +1172,17 @@ def get_api_url_implantar(cidade):
     #     clusters.append("IMPLANTAR PADRAO")
     return clusters
 
+def get_api_url_oi(cidade):
+    clusters = []
+    result = searchForCluster(cidade, "OI")
+    for row in result :
+        clusters.append(f"{row[0]} {row[1]}")
+
+    print(f"Clusters: {clusters}")
+    # if cidade in CITIES_API_IMPLANTAR_PADRAO:
+    #     clusters.append("IMPLANTAR PADRAO")
+    return clusters
+
 
 # FUNÇÃO UPDATE_CALL_WORKFLOW_VERO
 def update_field_and_call_workflow_vero(cidade, entity_id):
@@ -1326,6 +1337,29 @@ def update_field_and_call_workflow_blink(cidade, entity_id):
 # FUNÇÃO UPDATE_CALL_WORKFLOW_IMPLANTAR
 def update_field_and_call_workflow_implantar(cidade, entity_id):
     clusters = get_api_url_implantar(cidade)
+
+    if len(clusters) == 0:
+        requests.post(
+            f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={'CIDADE NÃO MAPEADA'}"
+        )
+        return {"error": "Error"}
+
+    clusters_to_string = ""
+    for i in range(len(clusters)):
+        clusters_to_string += (
+            f"{clusters[i]}, " if i != len(clusters) - 1 else f"{clusters[i]}"
+        )
+    requests.post(
+        f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={clusters_to_string}"
+    )
+    res2 = requests.post(
+        f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
+    )
+    print(res2.json())
+    return {"clusters": clusters_to_string}
+
+def update_field_and_call_workflow_oi(cidade, entity_id):
+    clusters = get_api_url_oi(cidade)
 
     if len(clusters) == 0:
         requests.post(
@@ -1688,6 +1722,52 @@ def update_plan_implantar(entity_id):
         )
 
         api_response = update_field_and_call_workflow_implantar(
+            cidade_completa, entity_id
+        )
+        return (
+            jsonify(
+                {
+                    "message": "Campo atualizado com sucesso!",
+                    "cidade_completa": cidade_completa,
+                    "api_response": api_response,
+                }
+            ),
+            200,
+        )
+
+    except Exception as e:
+        log_erro("Erro interno", e)
+        return jsonify({"error": "Erro interno no servidor", "details": str(e)}), 500
+    
+@app.route("/update-plan-oi/<string:entity_id>", methods=["POST"])
+def update_plan_oi(entity_id):
+    try:
+        get_deal_url = f"{BITRIX_WEBHOOK_URL}/crm.deal.get"
+        get_deal_response = make_request_with_retries(
+            "GET", get_deal_url, params={"id": entity_id}
+        )
+        handle_request_errors(
+            get_deal_response, "Falha ao buscar os dados da negociação"
+        )
+        get_deal_data = get_deal_response.json()
+
+        cidade = get_deal_data["result"].get("UF_CRM_1731588487")
+        uf = get_deal_data["result"].get("UF_CRM_1731589190")
+
+        if not cidade or not uf:
+            return jsonify({"error": "Campos Cidade e UF estão vazios"}), 400
+
+        cidade_completa = f"{cidade.strip().upper()} - {uf.strip().upper()}"
+
+        update_url = f"{BITRIX_WEBHOOK_URL}/crm.deal.update"
+
+        update_response = make_request_with_retries(
+            "POST",
+            update_url,
+            json={"id": entity_id, "fields": {"UF_CRM_1733493949": cidade_completa}},
+        )
+
+        api_response = update_field_and_call_workflow_oi(
             cidade_completa, entity_id
         )
         return (
