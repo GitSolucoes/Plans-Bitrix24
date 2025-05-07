@@ -12,7 +12,6 @@ BITRIX_WEBHOOK_URL = os.getenv("BITRIX_WEBHOOK_URL")
 URL_VPS = os.getenv("URL_VPS")
 
 BITRIX_WEBHOOK_URL = f"{BITRIX_WEBHOOK_URL}"
-URL_VPS = f"{URL_VPS}"
 
 
 def log_erro(mensagem, e=None):
@@ -1099,7 +1098,7 @@ def update_field_and_call_workflow_vero(cidade, entity_id):
         f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={clusters_to_string}"
     )
     res2 = requests.post(
-        f"https://grupo--solucoes-workflow-bitrix24.rvc6im.easypanel.host/webhook/workflow_send_plans_geral?deal_id={entity_id}"
+        f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
     )
     print(res2.json())
     return {"clusters": clusters_to_string}
@@ -1288,31 +1287,6 @@ def handle_request_errors(response, error_message, details=None):
         )
 
 
-def update_field_and_call_workflow_generic(cidade, entity_id, get_clusters_func):
-    clusters = get_clusters_func(cidade)
-
-    if not clusters:
-        requests.post(
-            f"{BITRIX_WEBHOOK_URL}/crm.deal.update",
-            data={"ID": entity_id, "FIELDS[UF_CRM_1741717512]": "CIDADE NÃO MAPEADA"}
-        )
-        return {"error": "Error"}
-
-    clusters_to_string = ", ".join(clusters)
-
-    requests.post(
-        f"{BITRIX_WEBHOOK_URL}/crm.deal.update",
-        data={"ID": entity_id, "FIELDS[UF_CRM_1741717512]": clusters_to_string}
-    )
-
-    res2 = requests.post(
-        f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
-    )
-    print(res2.json())
-    return {"clusters": clusters_to_string}
-
-
-
 @app.route("/update-plan-desktop/<string:entity_id>", methods=["POST"])
 def update_plan_desktop(entity_id):
     try:
@@ -1407,9 +1381,6 @@ def update_plan_giga(entity_id):
 
 @app.route("/update-plan-vero/<string:entity_id>", methods=["POST"])
 def update_plan_vero(entity_id):
-    return handle_update_plan(entity_id, get_api_url_vero)
-
-def handle_update_plan(entity_id, get_clusters_func):
     try:
         get_deal_url = f"{BITRIX_WEBHOOK_URL}/crm.deal.get"
         get_deal_response = make_request_with_retries(
@@ -1429,13 +1400,14 @@ def handle_update_plan(entity_id, get_clusters_func):
         cidade_completa = f"{cidade.strip().upper()} - {uf.strip().upper()}"
 
         update_url = f"{BITRIX_WEBHOOK_URL}/crm.deal.update"
+
         update_response = make_request_with_retries(
             "POST",
             update_url,
             json={"id": entity_id, "fields": {"UF_CRM_1733493949": cidade_completa}},
         )
 
-        api_response = update_field_and_call_workflow_generic(cidade_completa, entity_id, get_clusters_func)
+        api_response = update_field_and_call_workflow_vero(cidade_completa, entity_id)
         return (
             jsonify(
                 {
@@ -1637,4 +1609,4 @@ def update_plan_implantar(entity_id):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=1421)
+    app.run(port=1421, host="0.0.0.0")
