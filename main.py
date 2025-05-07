@@ -9,7 +9,7 @@ app = Flask(__name__)
 load_dotenv()
 
 BITRIX_WEBHOOK_URL = os.getenv("BITRIX_WEBHOOK_URL")
-
+URL_VPS = os.getenv("URL_VPS")
 
 BITRIX_WEBHOOK_URL = f"{BITRIX_WEBHOOK_URL}"
 
@@ -1097,6 +1097,12 @@ def update_field_and_call_workflow_vero(cidade, entity_id):
     requests.post(
         f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={clusters_to_string}"
     )
+    res2 = requests.post(
+        f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
+    )
+    print(res2.json())
+    return {"clusters": clusters_to_string}
+
 
 # FUNÇÃO UPDATE_CALL_WORKFLOW_GIGA+
 def update_field_and_call_workflow_giga(cidade, entity_id):
@@ -1116,6 +1122,12 @@ def update_field_and_call_workflow_giga(cidade, entity_id):
     requests.post(
         f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={clusters_to_string}"
     )
+    res2 = requests.post(
+        f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
+    )
+    print(res2.json())
+    return {"clusters": clusters_to_string}
+
 
 # FUNÇÃO UPDATE_CALL_WORKFLOW_DESKTOP
 def update_field_and_call_workflow_desktop(cidade, entity_id):
@@ -1135,7 +1147,11 @@ def update_field_and_call_workflow_desktop(cidade, entity_id):
     requests.post(
         f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={clusters_to_string}"
     )
-
+    res2 = requests.post(
+        f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
+    )
+    print(res2.json())
+    return {"clusters": clusters_to_string}
 
 
 # FUNÇÃO UPDATE_CALL_WORKFLOW_MASTER
@@ -1156,6 +1172,11 @@ def update_field_and_call_workflow_master(cidade, entity_id):
     requests.post(
         f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={clusters_to_string}"
     )
+    res2 = requests.post(
+        f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
+    )
+    print(res2.json())
+    return {"clusters": clusters_to_string}
 
 
 # FUNÇÃO UPDATE_CALL_WORKFLOW_BL_FIBRA
@@ -1176,7 +1197,11 @@ def update_field_and_call_workflow_blfibra(cidade, entity_id):
     requests.post(
         f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={clusters_to_string}"
     )
-
+    res2 = requests.post(
+        f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
+    )
+    print(res2.json())
+    return {"clusters": clusters_to_string}
 
 # FUNÇÃO UPDATE_CALL_WORKFLOW_IMPLANTAR
 def update_field_and_call_workflow_implantar(cidade, entity_id):
@@ -1196,7 +1221,11 @@ def update_field_and_call_workflow_implantar(cidade, entity_id):
     requests.post(
         f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={clusters_to_string}"
     )
-
+    res2 = requests.post(
+        f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
+    )
+    print(res2.json())
+    return {"clusters": clusters_to_string}
 
 
 
@@ -1217,7 +1246,14 @@ def update_field_and_call_workflow_oi(cidade, entity_id):
     requests.post(
         f"{BITRIX_WEBHOOK_URL}/crm.deal.update?ID={entity_id}&FIELDS[UF_CRM_1741717512]={clusters_to_string}"
     )
-    
+    res2 = requests.post(
+        f"{URL_VPS}/webhook/workflow_send_plans_geral?deal_id={entity_id}"
+    )
+    print(res2.json())
+    return {"clusters": clusters_to_string}
+
+
+
 def make_request_with_retries(method, url, **kwargs):
     max_retries = 5
     for attempt in range(max_retries):
