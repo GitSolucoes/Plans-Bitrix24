@@ -1516,7 +1516,7 @@ def update_plan_master(entity_id):
         return jsonify({"error": "Erro interno no servidor", "details": str(e)}), 500
 
 
-@app.route("/update-plan-oi/<string:entity_id>", methods=["POST"])
+@app.route("/update-plan-oi/<string:entity_id>", methods=["POST", "GET"])
 def update_plan_oi(entity_id):
     try:
         get_deal_url = f"{BITRIX_WEBHOOK_URL}/crm.deal.get"
