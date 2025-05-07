@@ -12,6 +12,7 @@ BITRIX_WEBHOOK_URL = os.getenv("BITRIX_WEBHOOK_URL")
 URL_VPS = os.getenv("URL_VPS")
 
 BITRIX_WEBHOOK_URL = f"{BITRIX_WEBHOOK_URL}"
+URL_VPS = f"{URL_VPS}"
 
 
 def log_erro(mensagem, e=None):
