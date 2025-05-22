@@ -81,9 +81,9 @@ def get_api_url_vero(cidade):
     if cidade in CITIES_API_NG_PRATA:
         clusters.append("VERO NG PRATA")
     if cidade in CITIES_API_NG_ESPECIAIS:
-        clusters.append("VERO NG ESPECIAL")
+        clusters.append("VERO NG ESPECIAIS")
     if cidade in CITIES_API_SIMETRA_ESPECIAS:
-        clusters.append("VERO SIMETRA ESPECIAL")
+        clusters.append("VERO SIMETRA ESPECIAS")
     if cidade in CITIES_API_SIMETRA_OURO:
         clusters.append("VERO SIMETRA OURO")
     if cidade in CITIES_API_SIMETRA_PRATA:
