@@ -683,4 +683,4 @@ def update_plan_implantar(entity_id):
 
 
 if __name__ == "__main__":
-    app.run(port=1437, host="0.0.0.0")
+    app.run(port=1421, host="0.0.0.0")
