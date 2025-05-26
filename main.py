@@ -52,7 +52,8 @@ from cities import (
     CITIES_API_BL_FIBRA_PADRAO,
     CITIES_API_MASTER_PADRAO,
     CITIES_API_IMPLANTAR_PADRAO,
-    CITIES_API_OI_PADRAO
+    CITIES_API_OI_PADRAO,
+    CITIES_API_REDE_NEUTRA_PADRAO
 )
 
 
@@ -60,6 +61,8 @@ from cities import (
 # FUNCÃO PARA VERO
 def get_api_url_vero(cidade):
     clusters = []
+    if cidade in CITIES_API_REDE_NEUTRA_PADRAO: 
+        clusters.append("REDE NEUTRA PADRAO")
     if cidade in  CITIES_API_ADAPTER_PADRAO:
         clusters.append("VERO ADAPTER PADRAO")
     if cidade in CITIES_API_ADAPTER_OURO:
@@ -87,7 +90,7 @@ def get_api_url_vero(cidade):
     if cidade in CITIES_API_SIMETRA_OURO:
         clusters.append("VERO SIMETRA OURO")
     if cidade in CITIES_API_SIMETRA_PRATA:
-        clusters.append("VERO SIMETRA PRATA")
+        clusters.append("VERO SIMENTRA PRATA")
     return clusters
 
 
@@ -680,4 +683,4 @@ def update_plan_implantar(entity_id):
 
 
 if __name__ == "__main__":
-    app.run(port=1421, host="0.0.0.0")
+    app.run(port=1437, host="0.0.0.0")
