@@ -90,7 +90,7 @@ def get_api_url_vero(cidade):
     if cidade in CITIES_API_SIMETRA_OURO:
         clusters.append("VERO SIMETRA OURO")
     if cidade in CITIES_API_SIMETRA_PRATA:
-        clusters.append("VERO SIMENTRA PRATA")
+        clusters.append("VERO SIMETRA PRATA")
     return clusters
 
 
